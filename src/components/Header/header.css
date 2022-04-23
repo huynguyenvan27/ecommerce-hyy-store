@@ -1,0 +1,65 @@
+
+/* header */
+#header-site{
+  padding: 25px 0;
+  background-color: var(--white-color);
+  box-shadow: 1px 2px 8px rgba(0,0,0,0.1);
+  overflow: smooth;
+}
+#logo{
+  width:95px ;
+  height:55px;
+}
+.nav-icon{
+  display: none;
+} 
+.topbar{
+  background-color: var(--black-color);
+}
+.topbar p{
+  margin:0;
+  padding: 3px 0;
+  color: var(--white-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.header-nav a{
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 12px;
+  text-transform: uppercase;
+}
+.header-icon>a{
+  margin:0 5px;
+  transform: translateY(0px);
+  transition: all 0.2s linear;
+}
+.header-icon>a:hover{
+  transform: translateY(-2px);
+}
+
+
+/* underline css */
+
+.underline-css {
+  position: relative;
+}
+
+.underline-css::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color:#0d6efd;
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+.underline-css:hover::before {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}

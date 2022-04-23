@@ -1,0 +1,23 @@
+
+
+
+footer{
+  background-color: var(--primary-color);
+  padding: 60px 0;
+}
+footer p,footer a{
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+footer h1{
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+footer #logo{
+  margin-bottom: 20px;
+}
+footer .store{
+  margin-bottom: 20px;
+}
+

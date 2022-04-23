@@ -1,0 +1,323 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "img": "/image/sneaker-1.webp",
+      "imgDetail": [
+        "/image/s1-0.webp",
+        "/image/s1-1.webp",
+        "/image/s1-2.jpg",
+        "/image/s1-3.jpg",
+        "/image/s1-4.jpg",
+        "/image/s1-5.jpg"
+      ],
+      "imgLg": [
+        "/image/s10.webp",
+        "/image/s11.webp",
+        "/image/s12.webp",
+        "/image/s13.webp",
+        "/image/s14.webp",
+        "/image/s15.webp"
+      ],
+      "price": 6500000,
+      "name": "Air Jordan 1 High Retro OG - Dark Marine Blue",
+      "list_size": [
+        41,
+        41.5,
+        42,
+        42.5,
+        43,
+        43.5,
+        44
+      ],
+      "discount": 0.2,
+      "brand": "nike",
+      "type": "sneaker",
+      "inStock": 20,
+      "isWishlist": false,
+      "isNew": true
+    },
+    {
+      "id": 2,
+      "img": "/image/sneaker-2.webp",
+      "imgDetail": [
+        "/image/s2-0.webp",
+        "/image/s2-1.webp",
+        "/image/s2-2.webp",
+        "/image/s2-3.webp",
+        "/image/s2-4.webp"
+      ],
+      "imgLg": [
+        "/image/s20.jpg",
+        "/image/s21.jpg",
+        "/image/s22.jpg",
+        "/image/s23.jpg",
+        "/image/s24.jpg"
+      ],
+      "price": 6500000,
+      "name": "adidas YEEZY BOOST 380 - Stone Salt",
+      "list_size": [
+        41,
+        41.5,
+        42,
+        42.5,
+        43,
+        43.5,
+        44
+      ],
+      "discount": 0.2,
+      "brand": "adidas",
+      "type": "sneaker",
+      "inStock": 20,
+      "isWishlist": false,
+      "isNew": true
+    },
+    {
+      "id": 3,
+      "img": "/image/sneaker-3.webp",
+      "imgDetail": [
+        "/image/s3-0.webp",
+        "/image/s3-1.webp",
+        "/image/s3-2.webp",
+        "/image/s3-3.webp",
+        "/image/s3-4.webp",
+        "/image/s3-5.webp"
+      ],
+      "imgLg": [
+        "/image/s30.webp",
+        "/image/s31.webp",
+        "/image/s32.webp",
+        "/image/s33.webp",
+        "/image/s34.webp",
+        "/image/s35.webp"
+      ],
+      "price": 3000000,
+      "name": "Nike Air Max 95 By You - Black/Sapphire",
+      "list_size": [
+        41,
+        41.5,
+        42,
+        42.5,
+        43,
+        43.5,
+        44
+      ],
+      "discount": 0,
+      "brand": "Nike",
+      "type": "sneaker",
+      "inStock": 20,
+      "isWishlist": false,
+      "isNew": true
+    },
+    {
+      "id": 4,
+      "img": "/image/sneaker-4.webp",
+      "imgDetail": [
+        "/image/s4-0.webp",
+        "/image/s4-1.webp",
+        "/image/s4-2.webp",
+        "/image/s4-3.webp",
+        "/image/s4-4.webp",
+        "/image/s4-5.webp"
+      ],
+      "imgLg": [
+        "/image/s40.webp",
+        "/image/s41.jpg",
+        "/image/s42.webp",
+        "/image/s43.webp",
+        "/image/s44.webp",
+        "/image/s45.webp"
+      ],
+      "price": 3000000,
+      "name": "Nike Air Force 1 Low By You - Honeycomb/Smoke Grey/Magic Flamingo",
+      "list_size": [
+        41,
+        41.5,
+        42,
+        42.5,
+        43,
+        43.5,
+        44
+      ],
+      "discount": 0,
+      "brand": "Nike",
+      "type": "sneaker",
+      "inStock": 20,
+      "isWishlist": false,
+      "isNew": true
+    },
+    {
+      "id": 5,
+      "img": "/image/sneaker-5.webp",
+      "imgDetail": [
+        "/image/s5-0.webp",
+        "/image/s5-1.webp",
+        "/image/s5-2.webp",
+        "/image/s5-3.webp",
+        "/image/s5-4.webp"
+      ],
+      "imgLg": [
+        "/image/s50.webp",
+        "/image/s51.webp",
+        "/image/s52.webp",
+        "/image/s53.webp",
+        "/image/s54.webp"
+      ],
+      "price": 1200000,
+      "name": "Under Armour 5 Lockdown - Black/White",
+      "list_size": [
+        41,
+        41.5,
+        42,
+        42.5,
+        43,
+        43.5,
+        44
+      ],
+      "discount": 0,
+      "brand": "UnderArmour",
+      "type": "sneaker",
+      "inStock": 20,
+      "isWishlist": false,
+      "isNew": true
+    },
+    {
+      "id": 6,
+      "img": "/image/sneaker-6.webp",
+      "imgDetail": [
+        "/image/s6-0.webp",
+        "/image/s6-1.webp",
+        "/image/s6-2.webp",
+        "/image/s6-3.webp",
+        "/image/s6-4.webp",
+        "/image/s6-5.jpg"
+      ],
+      "imgLg": [
+        "/image/s60.webp",
+        "/image/s61.webp",
+        "/image/s62.webp",
+        "/image/s63.webp",
+        "/image/s64.webp",
+        "/image/s65.webp"
+      ],
+      "price": 2800000,
+      "name": "adidas NMD R1 - Lush Red",
+      "list_size": [
+        41,
+        41.5,
+        42,
+        42.5,
+        43,
+        43.5,
+        44
+      ],
+      "discount": 0,
+      "brand": "adidas",
+      "type": "sneaker",
+      "inStock": 20,
+      "isWishlist": false,
+      "isNew": true
+    },
+    {
+      "id": 7,
+      "img": "/image/sneaker-7.webp",
+      "imgDetail": [
+        "/image/s7-0.webp",
+        "/image/s7-1.webp",
+        "/image/s7-2.webp"
+      ],
+      "imgLg": [
+        "/image/s70.webp",
+        "/image/s71.webp",
+        "/image/s72.webp"
+      ],
+      "price": 3500000,
+      "name": "Comme des Garcons PLAY x Converse Chuck Taylor 1970s High - Off White",
+      "list_size": [
+        41,
+        41.5,
+        42,
+        42.5,
+        43,
+        43.5,
+        44
+      ],
+      "discount": 0,
+      "brand": "Converse",
+      "type": "sneaker",
+      "inStock": 20,
+      "isWishlist": false,
+      "isNew": false
+    },
+    {
+      "id": 8,
+      "img": "/image/sneaker-8.webp",
+      "imgDetail": [
+        "/image/s8-0.webp",
+        "/image/s8-1.webp",
+        "/image/s8-2.webp",
+        "/image/s8-3.webp"
+      ],
+      "imgLg": [
+        "/image/s80.webp",
+        "/image/s81.webp",
+        "/image/s82.webp",
+        "/image/s83.webp"
+      ],
+      "price": 3000000,
+      "name": "New Balance 2002R - Black/White",
+      "list_size": [
+        41,
+        41.5,
+        42,
+        42.5,
+        43,
+        43.5,
+        44
+      ],
+      "discount": 0,
+      "brand": "NewBalance",
+      "type": "sneaker",
+      "inStock": 20,
+      "isWishlist": false,
+      "isNew": false
+    },
+    {
+      "id": 9,
+      "img": "/image/sneaker-9.webp",
+      "imgDetail": [
+        "/image/s9-0.webp",
+        "/image/s9-1.webp",
+        "/image/s9-2.webp",
+        "/image/s9-3.webp",
+        "/image/s9-4.webp",
+        "/image/s9-5.webp"
+      ],
+      "imgLg": [
+        "/image/s90.webp",
+        "/image/s91.webp",
+        "/image/s92.webp",
+        "/image/s93.webp",
+        "/image/s94.webp",
+        "/image/s95.webp"
+      ],
+      "price": 6000000,
+      "name": "Nike Kwondo 1 - White/White",
+      "list_size": [
+        41,
+        41.5,
+        42,
+        42.5,
+        43,
+        43.5,
+        44
+      ],
+      "discount": 0.1,
+      "brand": "Nike",
+      "type": "sneaker",
+      "inStock": 20,
+      "isWishlist": false,
+      "isNew": false
+    }
+  ]
+}

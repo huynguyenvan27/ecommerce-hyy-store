@@ -1,0 +1,120 @@
+/* quick-action */
+.quick-action button{
+  border: none;
+  padding: 7px 13px;
+  background-color: var(--white-color);
+  margin:0 5px;
+  position: relative;
+  transition: all 0.5s linear;
+}
+.quick-action button i{
+  font-size: 2rem;
+}
+.quick-action{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* display: none; */
+  width: max-content;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+/* hover */
+.product-card{
+  margin-bottom: 15px;
+}
+.product-card:hover .quick-action{
+  /* display: inline-block; */
+  opacity: 0.9;
+}
+.product-card:hover .product-link img{
+  filter: brightness(87%);
+
+}
+.quick-action button:hover{
+  background-color: var(--red-color);
+}
+.icon-title{
+  display: none;
+  position: absolute;
+  top: -27px;
+  white-space: nowrap;
+  transform: translateX(calc(-50% + 10px));
+  background-color: var(--red-color);
+  color: var(--white-color);
+  border-radius: 3px;
+  padding: 1px;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: all 1s linear;
+  padding: 0 2px;
+}
+.icon-title:after{
+  content: "";
+  position: absolute;
+  border: 10px solid;
+  border-color: var(--red-color) transparent transparent transparent;
+  bottom: -17px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: -5;
+}
+
+.quick-action button:hover .icon-title{
+  display: inline-block; 
+  opacity: 1;
+}
+
+/*card-info*/
+
+#list-product{
+  padding:0 15px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.name-colection{
+  font-size: 4rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: var(--black-color);
+}
+.product-card__inner{
+  position: relative;
+}
+.price{
+  font-weight: 300;
+  font-size: 1.6rem;
+  color:var(--red-color);
+}
+
+.product-info {
+  max-width: 96%;
+}
+.name-tag{
+  font-size: 1.6rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  margin-top: 10px;
+  width: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.product-link{
+  display: block;
+}
+/* number-sale */
+.number-sale{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+  background-color: var(--white-color);
+  color: var(--red-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0 4px;
+  border-radius: 2px;
+}

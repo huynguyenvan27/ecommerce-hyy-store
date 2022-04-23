@@ -1,0 +1,166 @@
+@import "/node_modules/slick-carousel/slick/slick.css"; 
+@import "/node_modules/slick-carousel/slick/slick-theme.css";
+
+/* banner */
+.slider-item{
+  padding-top:50vw;
+  background-position: center ;
+  background-size: cover;
+  position: relative;
+}
+.banner-title{
+  position: absolute;
+  bottom:60%;
+  text-align: center;
+  width: 100%;
+}
+.banner-title h1{
+  font-size: 10rem;
+  font-weight: 400;
+  font-style: italic;
+}
+.slider-1{
+  background-image: url(/image/original.jpg);
+}
+.slider-2{
+  background-image: url(/image/azeno_slider6-1.jpg);
+}
+.slider-3{
+  background-image: url(/image/s3.jpg);
+}
+.text-left{
+  position: absolute;
+  color: var(--white-color);
+  right: 50%;
+  bottom: 70%;
+}
+.text-right{
+  position: absolute;
+  color: #000;
+  left: 50%;
+  top: 30%;
+}
+#shop-now{
+  border: 1px solid var(--black-color);
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%) ;
+  background-color: transparent;
+  opacity: 0.8;
+  padding: 10px;
+  box-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;;
+}
+#shop-now h1{
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+#shop-now:hover{
+  background-color: var(--white-color);
+}
+
+
+/* policy */
+#policy{
+  margin-top: 30px;
+}
+.policy-img{
+  width: 42px;
+  height: 42px;
+}
+.policy-title{
+  margin-left: 10px;
+}
+.policy-title h1{
+  font-size: 1.4rem;
+}
+.policy-title p{
+  font-size: 1.2rem;
+}
+
+/* option-sex */
+#option-sex{
+  padding: 0 15px;
+}
+#option-sex .col{
+  margin-top: 20px;
+}
+#option-sex a{
+  position: relative;
+}
+#option-sex h1{
+  position: absolute;
+  font-size: 4.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%,-50%);
+  font-family: 'roboto',sans-serif;
+}
+
+/* deal-hot */
+#hot-deal{
+  background-color: var(--primary-color);
+  margin-top: 60px;
+}
+#hot-deal .row{
+  margin: 7.5px !important;
+  padding: 15px 0;
+}
+
+.deal-info{
+}
+.deal-title{
+  font-size: 7.2rem;
+  font-weight: 500;
+}
+.deal-name{
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.price-of-deal>.price-current{
+  font-size: 3rem;
+}
+.price-of-deal>.price-old{
+  font-size: 2rem;
+}
+.deal-times>span{
+  background-color: var(--red-color);
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--white-color);
+  margin-right: 5px;
+}
+.deal-times>span::after{
+  color: var(--black-color);
+  background-color: var(--primary-color);
+  font-size: 1.2rem;
+  display: block;
+  padding: 15px;
+  padding-top: 5px;
+}
+.deal-second::after{
+  content: "Giây";
+}
+.deal-hour::after{
+  content: "Giờ";
+}
+.deal-minute::after{
+  content: "Phút";
+}
+#hot-deal button{
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 20px;
+}
+.deal-shoe {
+  padding: 10px;
+}
+.deal-shoe img{
+  height: 100%;
+  display: block;
+}

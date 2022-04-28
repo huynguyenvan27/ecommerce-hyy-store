@@ -1,0 +1,180 @@
+
+
+#product-details{
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.btn-cart-list{
+  padding: 8px;
+  font-size: 1.6rem;
+}
+
+.btn-cart-list option{
+  background-color: var(--white-color);
+  color: var(--black-color);
+  font-size: 1.6rem;
+}
+
+
+/* category-product */
+
+.category-product{
+  border:1px solid var(--border-color);
+  padding:20px 10px;
+  margin-bottom: 10px;
+}
+
+.category-layout{
+  border-bottom: 1px dashed var(--border-color) ;
+  margin-bottom: 20px;
+}
+
+.category-title{
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.category-option label{
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-left: 2px;
+}
+
+.size-item{
+  font-size: 1.6rem;
+  width: 40px;
+  height: 40px;
+  background-color: var(--white-color);
+  border:1px solid #ccc;
+  margin: 2px 2px;
+
+}
+.size-item:focus{
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border-color: var(--black-color);
+}
+.layout-page{
+  margin: 0 7.5px;
+  margin-bottom: 15px;
+}
+.layout-page button{
+  font-size: 1.6rem;
+}
+.layout-page span button>i{
+  font-size: 3rem;
+  margin-right: 15px;
+}
+
+/* search-product */
+.search-product{
+  margin-bottom: 20px;
+}
+.search-product input{
+  padding: 5px 5px;
+  font-size: 1.6rem;
+  width: 100%;
+  
+}
+
+/* filter-product */
+.filter-product{
+  margin-bottom: 20px;
+}
+.filter-product .btn{
+  font-size: 1.6rem;
+
+}
+.btn-outline-danger.btn.me-1.mb-1{
+  cursor: pointer;
+}
+#removeAll{
+  visibility: hidden;
+}
+.filter-item a>i{
+  color: var(--red-color);
+}
+
+/* size-btn */
+
+input[type="radio"]{
+  display: none;
+}
+input:checked + .btn-size {
+  background-color: var(--black-color);
+  color: white;
+  transition: .5s;
+}
+.btn-size{
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border: 1px solid var(--black-color);
+  text-align: center;
+  margin-right: 5px;
+  margin-top: 5px;
+  height: 40px;
+  width: 50px;
+  cursor: pointer;
+  line-height: 40px;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+/* sneaker-quantiy */
+.sneaker-quantity{
+  border: 1px solid #ccc;
+  display: inline-flex;
+}
+.sneaker-quantity i{
+  font-size: 2rem;
+}
+.sneaker-info .btn{
+  box-shadow: unset;
+}
+.sneaker-quantity__value{
+  font-size: 1.6rem;
+  max-width: 30px;
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+/* ranked-vote */
+.ranked-vote i{
+  font-size: 2rem;
+  color: #FFA800;
+}
+
+.sneaker-info .favourite.btn{
+  font-size:1.6rem;
+  border: none!important;
+}
+.liked{
+  display: none;
+}
+
+
+/*description, comment*/
+.information-product__descript{
+  
+}
+
+.comment-list{
+  background-color: var(--grey-color);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.your-vote{
+  display: none;
+}
+#information-product .tab{
+  margin-bottom: 15px;
+}
+#information-product input,textarea{
+  width: 100%;
+  padding:5px 10px;
+  font-size: 1.6rem;
+  outline: none;
+}

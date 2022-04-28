@@ -1,0 +1,60 @@
+.contact-input>input,.contact-input>textarea{
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 1.6rem;
+  outline: none;
+}
+.contact-input label{
+  font-size: 1.6rem;
+  flex: 1;
+}
+.contact-input select{
+  padding: 5px 0;
+  font-size: 1.6rem;
+  max-width: 175px;
+  width: 100%;
+  margin:10px 0;
+  
+}
+iframe{
+  width: 100%;
+}
+.contact-map{
+  margin-top: 80px;
+
+}
+.contact-img{
+  margin-top: 30px;
+}
+.content-page .col{
+  padding: 0 60px;
+}
+input:checked + .btn-option-pay {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  transition: .5s;
+}
+.btn-option-pay{
+  border: 1px solid var(--black-color);
+  padding: 6px 0;
+  background-color: var(--white-color);
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.btn-option-pay i{
+  font-size: 3rem;
+}
+.btn-option-pay:focus{
+  background-color: var(--primary-color);
+}
+
+.product label, .free-tr label, .totals label{
+  font-size: 1.6rem;
+  margin:10px 0;
+}
+.input-code{
+  font-size: 1.6rem;
+  padding: 5px 10px;
+}

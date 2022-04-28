@@ -1,21 +1,28 @@
 import Card from "../../components/Card/Card"
+import Fade from "react-reveal/Fade"
+import LayoutPage from "./LayoutPage"
+const ListProduct = ({products,handleSort}) => {
 
-const ListProduct = () =>{
-  const {data,isFetching,error} = useGetAllProductsQuery();
-  if(isFetching){
-    return <p>loading</p>
-  }
-  if(error){
-    return <p>Opp!</p>
-  }
+
+    
   return(
+    <Fade
+      bottom
+      Cascade = { true}
+     >
+    <LayoutPage handleSort={handleSort}/>
     <div className="row" id="product">
+
+   
       {
-        data.map(product=>{
-          return <Card product={product}/>
+        products.map(product=>{
+          return <div className="col col-lg-4 col-md-4 col-sm-6 col-6" key={product.id} >
+           <Card   product={product}/>
+          </div>
         })
       }
     </div>
+    </Fade>
   )
 }
 

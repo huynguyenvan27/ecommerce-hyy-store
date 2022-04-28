@@ -1,0 +1,25 @@
+#seperate{
+  background-image: url(../image/seperate.jpg);
+  padding-top: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main-name{
+  font-size: 3.6rem;
+  color: var(--white-color);
+  font-weight: 600;
+}
+.category-name>a,.category-name>span{
+  font-size: 2.4rem;
+  color: var(--white-color) !important;
+  font-weight: 400;
+}
+.category-name a:hover{
+  color: var(--red-color) !important;
+}
+.seperate-block{
+  top: 25%;
+  right: 50%;
+  transform: translateX(50%);
+}

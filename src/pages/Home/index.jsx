@@ -3,16 +3,22 @@ import './home.css'
 import Policy from "./Policy";
 import Slider from "react-slick";
 import Option from "./Option";
-import ListProduct from "./ListProduct";
+import NewProduct from "./NewProduct";
 import DealHot from "./DealHot";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import News from "./News";
-
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import { useSelector } from "react-redux";
+import { selectAllProducts } from "../../store/slices/product.slice";
+import { ToastContainer } from "react-toastify";
 const Home = () =>{
+  const products = useSelector(selectAllProducts)
+
+  
 
   const settings = {
     dots: true,
-    arrows: true,
     accessibility: true,
     infinite: true,
     slidesToShow: 1,
@@ -22,11 +28,9 @@ const Home = () =>{
     autoplaySpeed: 1000,
     fade : true,
     cssEase: "linear", 
+    arrows:false,
     appendDots: dots => (
       <div
-        style={{
-          
-        }}
       >
         <ul style={{ margin: "40px" }}> {dots} </ul>
       </div>
@@ -34,9 +38,10 @@ const Home = () =>{
   };
   return( 
     <>
+    <Header/>
     <div id="banner">
-      <Slider {...settings} className="slider">
-
+      <div className="slider">
+      <Slider {...settings}>
         <div className="slider-1 slider-item">
           <div className="banner-title">
             <h1 className="text-left">Welcome to</h1>
@@ -65,13 +70,28 @@ const Home = () =>{
           </Link>
         </div>
       </Slider>
+      </div>
+    </div>
       <Policy />
       <Option />
-      <ListProduct />
+      <NewProduct data={products}/>
       <DealHot />
       <News/>
-      <Newsletter />
-    </div>
+      <Newsletter/>
+      <Footer />
+      <ToastContainer 
+          position="bottom-right"
+          autoClose={3000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover={false}
+          style={{ fontSize: "1.5rem" }} 
+        />
+ 
 
     </>
   )

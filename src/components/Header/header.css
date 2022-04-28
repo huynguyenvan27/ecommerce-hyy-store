@@ -29,6 +29,7 @@
   font-weight: 700;
   margin: 0 12px;
   text-transform: uppercase;
+  color: var(--black-color);
 }
 .header-icon>a{
   margin:0 5px;

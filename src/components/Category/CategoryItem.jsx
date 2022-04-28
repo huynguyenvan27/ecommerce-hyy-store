@@ -1,9 +1,9 @@
-const CategoryItem = () => {
+const CategoryItem = ({brand,handleFilterBrand}) => {
 
   return(
-    <li class="col-lg-6 category-option d-flex align-items-center">
-      <input type="checkbox" name={product.brand} id= {`category-option__${product.brand}`}/>
-      <label for= {`category-option__${product.brand}`}>{product.brand}</label>
+    <li className="col-lg-6 category-option d-flex align-items-center">
+      <input type="checkbox" name={brand} id= {`category-option__${brand}`} checked={brand.name} onChange={handleFilterBrand}/>
+      <label htmlFor= {`category-option__${brand}`}>{brand}</label>
     </li>
   )
 }

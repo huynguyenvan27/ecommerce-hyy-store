@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import './footer.css'
+import { FaFacebookF,FaTwitter,FaYoutube,FaInstagram } from 'react-icons/fa';
 const Footer = (props) =>{
   return(
     <footer>
@@ -51,10 +52,10 @@ const Footer = (props) =>{
           <div className="col-lg-3 col-md-3 col-sm-12">
             <h1>FANFAGE</h1>
             <p>Theo dõi để nhận được thông tin ưu đãi sớm nhất</p>
-            <Link to="#" className="icon-link facebook"><i className="fa-brands fa-facebook-f"></i></Link>
-            <Link to="#" className="icon-link twitter"><i className="fa-brands fa-twitter"></i></Link>
-            <Link to="#" className="icon-link youtube"><i className="fa-brands fa-youtube"></i></Link>
-            <Link to="#" className="icon-link pinterest"><i className="fa-brands fa-pinterest"></i></Link>
+            <Link to="#" className="icon-link"> <FaFacebookF/></Link>
+            <Link to="#" className="icon-link"> <FaTwitter /></Link>
+            <Link to="#" className="icon-link"> <FaYoutube /></Link>
+            <Link to="#" className="icon-link"><FaInstagram/></Link>
           </div>
         </div>
       </div>

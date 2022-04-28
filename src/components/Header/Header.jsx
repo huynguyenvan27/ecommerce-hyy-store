@@ -1,6 +1,16 @@
 import { Link,NavLink } from "react-router-dom"
 import './header.css'
+import {react , useCallback , useContext} from 'react'
+import { myContext } from "../../App"
+import SideNav from "../Sidenav/SideNav"
+import Overlay from "../Overlay/Overlay"
+      
 const Header = () => {
+  const {open} = useContext(myContext);
+  const {setOpen} = useContext(myContext);
+  const btnToogle = useCallback(() =>{
+    setOpen(!open)
+  })
   return(
     <div id="header">
       <div className='topbar'>
@@ -29,12 +39,18 @@ const Header = () => {
             <button className="btn" id="userLogin">
               <img src="/image/user.svg" alt=""/>
             </button>
-            <button className="btn" >
+            <button className="btn" onClick={btnToogle}>
               <img src="/image/bag.svg" alt=""/>
             </button>
           </div>
         </div>
       </header>
+      
+      <SideNav 
+        state={open}
+        btnToogle={btnToogle}
+       />
+       <Overlay state={open} btnToogle={btnToogle}/>
     </div>
   )
 }

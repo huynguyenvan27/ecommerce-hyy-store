@@ -10,21 +10,43 @@ import Contact from './pages/Contact'
 import AboutUs from './pages/AboutUs'
 import Productdt from './pages/Productdt/Productdt'
 import Blog from './pages/Blog'
+import Cart from './pages/Cart/Cart'
+import Checkout from './pages/Checkout/Checkout'
+
+import { useGetAllProductsQuery } from './services/product.service'
+import { createContext , useState } from 'react'
+
+
+const myContext = createContext();
+export {myContext} 
 
 function App() {
+  const [size,setSize] = useState (null)
+  const [open,setOpen] = useState(false);
 
+  const {isfetching, error} = useGetAllProductsQuery()
+  if(isfetching) {
+    return <p>....Loading</p>
+  }
+  if(error){
+    return <p>Có lỗi xảy ra</p>
+  }
   return (
+    <myContext.Provider value={{size,setSize,open,setOpen}}>
     <Routes>
+        <Route index element = {<Home />}/>
       <Route path='/' element = {<Layout />}>
-        <Route index element = {<Home />}></Route>
-        <Route path='/sneaker' element = {<Sneaker />}></Route>
-        <Route path='/accessory' element = {<Accessory />}></Route>
-        <Route path='/product/:id' element = {<Productdt />}></Route>          
-        <Route path='/blog' element = {<Blog />}></Route>
-        <Route path='/about-us' element = {<AboutUs />}></Route>
-        <Route path='/contact' element = {<Contact/>}></Route>
+        <Route path='/sneaker' element = {<Sneaker />}/>
+        <Route path='/accessory' element = {<Accessory />}/>
+        <Route path='/product/:id' element = {<Productdt />}/>
+        <Route path='/cart' element={<Cart />}/>  
+        <Route path='/blog' element = {<Blog />}/>
+        <Route path='/about-us' element = {<AboutUs />}/>
+        <Route path='/contact' element = {<Contact/>}/>
+        <Route path='/checkout' element = {<Checkout />}/>
       </Route>
     </Routes>
+    </myContext.Provider>
   )
 }
 

@@ -5,4 +5,8 @@ const productStoreBaseQuery = fetchBaseQuery ({
 });
 
 
-export {productStoreBaseQuery};
+const addressBaseQuery = fetchBaseQuery({
+  baseUrl : "https://provinces.open-api.vn/api/?depth=3"
+})
+
+export {productStoreBaseQuery,addressBaseQuery};

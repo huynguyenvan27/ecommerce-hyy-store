@@ -1,1 +1,21 @@
 
+/* sneaker-quantiy */
+.sneaker-quantity{
+  border: 1px solid #ccc;
+  display: inline-flex;
+}
+.sneaker-quantity i{
+  font-size: 2rem;
+}
+.sneaker-info .btn{
+  box-shadow: unset;
+}
+.sneaker-quantity__value{
+  font-size: 1.6rem;
+  max-width: 30px;
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  outline: none;
+}

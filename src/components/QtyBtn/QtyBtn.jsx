@@ -1,14 +1,14 @@
 
-
-const QtyBtn = () =>{
+import './QtyBtn.css'
+const QtyBtn = ({handleDecrease,handleIncrease,product,quantity,size}) =>{
   return(
-    <div class="sneaker-quantity">
-      <button class="btn btn-light btn-down" >
-        <i class="bi bi-dash"></i>
+    <div className="sneaker-quantity">
+      <button className="btn btn-light btn-down" onClick={()=>handleDecrease({id:product.id,size:size})} >
+        <i className="bi bi-dash"></i>
       </button>
-      <input class="sneaker-quantity__value align-middle" type="number" name="quantity" value="1" min="1" max="10"/>
-      <button class="btn btn-light btn-up">
-        <i class="bi bi-plus"></i>
+      <input className="sneaker-quantity__value align-middle" type="number" name="quantity" value={quantity}/>
+      <button className="btn btn-light btn-up" onClick={()=>handleIncrease({id:product.id,size:size})}>
+        <i className="bi bi-plus"></i>
       </button>
     </div>
   )

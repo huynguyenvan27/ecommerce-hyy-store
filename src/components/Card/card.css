@@ -91,6 +91,9 @@
 .product-info {
   max-width: 96%;
 }
+.product-info {
+  color: var(--black-color) ;
+}
 .name-tag{
   font-size: 1.6rem;
   margin-bottom: 0;
@@ -118,3 +121,5 @@
   padding: 0 4px;
   border-radius: 2px;
 }
+
+

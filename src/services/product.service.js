@@ -1,14 +1,16 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { productStoreBaseQuery ,addressBaseQuery} from "./baseUrl.service";
 const productApi = createApi({
-  reducerPath : "product",
+  reducerPath : "productsApi",
   baseQuery : productStoreBaseQuery,
   endpoints: (builder)=>({
     getAllProducts : builder.query({
-      query:()=>{return 'product'}
+      query:()=>{return {url: 'products',
+    method: 'GET',
+  mode: 'no-cors'}}
     }),
     getProductById: builder.query({
-      query: ({ id }) => `product/${id}`,
+      query: ({ id }) => `products/${id}`,
     }),
   })
 })

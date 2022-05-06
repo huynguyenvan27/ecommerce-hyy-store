@@ -21,17 +21,16 @@ const Productdt = () =>{
   const { id } = useParams();
   const { isFetching, data } = useGetProductByIdQuery({ id });
 
-  const handleSize = useCallback((e) => setSize(e))
-  console.log(size);
   
   const handleAddToCart = (id) =>{
     if(size != null) {
       dispatch(addOption({id:id,size:size}))
       setOpen(true)
+      setSize(null)
     }else{
       toast.warn(`
       Chọn Size trước khi thêm vào giỏ hàng`,{
-      position: "bottom-right",
+      position: "top-center",
       autoClose: 3000,
       hideProgressBar: true,
       closeOnClick: true,
@@ -51,10 +50,12 @@ const Productdt = () =>{
     <div id="product-details">
       <div className="container">
         <div className="row" id="product-details__inner">
-          <div className="col-lg-7 col-md-12">
+          <div className="col-lg-6 col-md-12">
             <Slider 
               asNavFor={nav2}
-              ref={c=>setNav1(c)}
+              ref={c=>setNav1(c)
+              }
+              infinite= {true}
             >
               {data.imgLg.map(src=>{
                 return(
@@ -66,9 +67,14 @@ const Productdt = () =>{
             <Slider 
                    asNavFor={nav1}
                    ref={c => setNav2(c)}
-                   slidesToShow={6}
+                   slidesToShow={5}
+                   infinite= {false}
+                   slidesToScroll={1}
                    swipeToSlide={true}
                    focusOnSelect={true}
+                   arrows={false}
+                   centerMode = {true}
+                   centerPadding= {true}
             >
               {data.imgDetail.map(src=>{
                 return(
@@ -78,11 +84,10 @@ const Productdt = () =>{
               })}
             </Slider>
           </div>
-          <div className="col-lg-5 col-md-12">
+          <div className="col-lg-6 col-md-12">
             <ProductdtInfo  
               product={data}
               handleAddToCart = {handleAddToCart}
-              handleSize = {handleSize}
             />
           </div>
         </div>

@@ -6,44 +6,20 @@ import { useSelector,useDispatch} from "react-redux";
 import { selectAllProducts } from "../../store/slices/product.slice";
 import { ToastContainer } from "react-toastify";
 import Slide from "react-reveal/Slide"
-import { filterBrand, removeBrand,loadData,filterSize } from "../../store/slices/filter.slice";
+import { filterBrand, removeBrand,sortAsc,sortDes } from "../../store/slices/filter.slice";
 import Search from "./Search";
-import { selecfilterBrand,selectBrand , selectData ,selectfilterSize} from "../../store/slices/filter.slice";
-import { selectProductById } from '../../store/slices/product.slice';
+import { selecfilterBrand,selectBrand,selectfilterSize ,selectMultipleFilter,selectSize,selectSearch,selectString} from "../../store/slices/filter.slice";
+
 const Sneaker = () =>{
   const listBrand = useSelector(selectBrand)
-  // console.log(listBrand);
   const dispatch = useDispatch()
   const products = useSelector(selectAllProducts)
-  
-  const listProduct = useSelector(selecfilterBrand)
-  const listSize = useSelector(selectfilterSize)
-  
-  // dispatch(loadData(products))
-  const data = [...listProduct,...listSize]
-
-
-  // console.log(data);
-  // const all = [];
-  // if(listSize.length>0){
-  //   all = listProduct.filter(item => !listSize.includes(item) )
-  // }else{
-  //   all.length = 0
-  // } 
-
-  //   console.log(all)
-
-
-  const [kt,setKt] = useState (null)
-  const handleSize = (e) => {
-    setKt(e)
-    dispatch(filterSize(kt))
-  }
-
-  // console.log(listSize);
-
-
-
+  const listProductByBrand = useSelector(selecfilterBrand)
+  const listProductBySize = useSelector(selectfilterSize)
+  const filter = useSelector(selectMultipleFilter)
+  const listSize = useSelector(selectSize)
+  const listProductBySearch = useSelector(selectSearch)
+  const search = useSelector(selectString)
   let brandList = []
   if(products){
     products.forEach(e => {
@@ -55,12 +31,14 @@ const Sneaker = () =>{
     });
   }
 
+
   const [brand,setBrand] = useState ({})
 
+  // xử lý lọc brand
   const handleFilterBrand = (e) =>{
     if(e.target.checked){
-      setBrand({...brand,[e.target.name] : true})
       dispatch(filterBrand(e.target.name))
+      setBrand({...brand,[e.target.name] : true})
     }else{
 
       dispatch(removeBrand(e.target.name)) 
@@ -68,32 +46,46 @@ const Sneaker = () =>{
     }
   }
 
-  const handleSort = () =>{
-    
-  }
+
+
+
+  // Lọc data
+  const  data = () => {
+    if(search){
+      return listProductBySearch
+    }else if(listProductByBrand.length>0 && listSize.length == 0){
+      return listProductByBrand
+    }else if(listProductBySize.length>0 && listProductByBrand.length == 0){
+      return listProductBySize
+    }else {
+      return filter
+    }
+  };
 
   return(
-
         <div id="list-product">
         <div className="container-fuild">
           <div className="row"> 
+          <button class="btn side-filter">BỘ LỌC SẢN PHẨM</button>
           <div className="col col-lg-3 col-md-12 col-sm-12 col-12" id="filter-product">
-
             <Slide
               left
               Cascade = {true}
               >
               <Search/>
-              <Category list = {brandList} brand={brand} handleFilterBrand={handleFilterBrand} handleSize={handleSize} />
+              <Category list = {brandList} brand={brand} handleFilterBrand={handleFilterBrand} />
             </Slide>
           </div>
           <div class="col col-lg-9 col-md-12 col-sm-12 col-12">
-            
-            <ListProduct products={listProduct.length >0 ? listProduct : products} handleSort={handleSort} />
-            <ToastContainer 
+            {
+              data().length == 0 && (listSize.length >0 || listBrand.length >0) ? 
+              <h1>Không có sản phẩm nào hiển thị</h1> 
+              :<>
+             <ListProduct products={data().length>0? data() : products} />
+              <ToastContainer 
               position="bottom-right"
               autoClose={3000}
-              hideProgressBar
+              hideProgressBar 
               newestOnTop={false}
               closeOnClick
               rtl={false}
@@ -102,6 +94,8 @@ const Sneaker = () =>{
               pauseOnHover={false}
               style={{ fontSize: "1.5rem" }} 
             />
+            </>
+            }
           </div>
 
         </div>

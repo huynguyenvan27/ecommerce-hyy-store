@@ -13,15 +13,6 @@ const productApi = createApi({
   })
 })
 
-// const addressApi = createApi({
-//   reducerPath : "address",
-//   baseQuery : addressBaseQuery,
-//   endpoints:(builder)=>({
-//     query: () => {return  :}
-
-//   })
-
-// })
 
 
 export default productApi;

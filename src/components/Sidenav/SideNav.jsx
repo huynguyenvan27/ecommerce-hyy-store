@@ -32,6 +32,7 @@ const SideNav = ({state,btnToogle}) =>{
                               quantity={item.quantity}
                               handleRemove={handleRemove}
                               size={item.size}
+                              btnToogle={btnToogle}
                             />
                           )
                         })}

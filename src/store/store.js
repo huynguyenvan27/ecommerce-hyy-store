@@ -4,7 +4,8 @@ import productApi from "../services/product.service";
 import cartSlice from "./slices/cart.slice";
 import productSlice from "./slices/product.slice";
 import listProductSlice from "./slices/filter.slice"
-
+import userApi from "../services/user.service";
+import userReducer from "./slices/user.slice";
 
  const loadState = () => {
     try {
@@ -29,11 +30,13 @@ const persistedState = loadState();
 
 const store = configureStore ({
     reducer:{
-     [productApi.reducerPath]: productApi.reducer,
-     cart : cartSlice,
-     products: productSlice,
-     listProduct : listProductSlice,
-     persistedState
+      cart : cartSlice,
+      products: productSlice,
+      listProduct : listProductSlice,
+      user: userReducer,
+      [productApi.reducerPath]: productApi.reducer,
+      [userApi.reducerPath]: userApi.reducer,
+      persistedState
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(productApi.middleware)

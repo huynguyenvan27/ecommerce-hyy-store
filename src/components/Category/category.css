@@ -29,11 +29,11 @@
     margin: 2px 2px;
   
   }
-  .size-item:focus{
+  /* .size-item.choosen{
     background-color: var(--black-color);
     color: var(--white-color);
     border-color: var(--black-color);
-  }
+  } */
   .layout-page{
     margin: 0 7.5px;
     margin-bottom: 15px;

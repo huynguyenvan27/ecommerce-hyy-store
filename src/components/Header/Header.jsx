@@ -1,9 +1,10 @@
 import { Link,NavLink } from "react-router-dom"
 import './header.css'
-import {react , useCallback , useContext} from 'react'
+import {react , useCallback ,useEffect, useContext,useState} from 'react'
 import { myContext } from "../../App"
 import SideNav from "../Sidenav/SideNav"
 import Overlay from "../Overlay/Overlay"
+import NavMobi from "../NavMobi/NavMobi"
       
 const Header = () => {
   const {open} = useContext(myContext);
@@ -11,13 +12,46 @@ const Header = () => {
   const btnToogle = useCallback(() =>{
     setOpen(!open)
   })
+
+  const [menu,setMenu] = useState(false)
+  const btnToogleMenu = () => {
+    setMenu(!menu)
+  }
+  // srcoll to top
+  const [hide,setHide]= useState(false)
+  const [lastScrollY,setLastScrollY] = useState(0)
+  const controllScroll = ()  =>{
+    if(window !== undefined){
+      if(window.scrollY > lastScrollY && window.scrollY > lastScrollY){
+        setHide(true); 
+      }else{
+        setHide(false); 
+      }
+      setLastScrollY(window.scrollY); 
+    }
+  }
+  useEffect(()=>{
+    if(window !== undefined){
+      window.addEventListener("scroll",controllScroll)
+    }
+    // hàm cleanup
+    return () => {
+      window.removeEventListener('scroll', controllScroll);
+    };
+
+  },[lastScrollY])
+
   return(
-    <div id="header">
+    <>
+    <div id="header" className={hide? "header hide" : "header show"  }>
       <div className='topbar'>
         <p className='text-center'>TẠO TÀI KHOẢN, DÙNG CODE 'HELLO' GIẢM 5% CHO ĐƠN HÀNG ĐẦU TIÊN</p>
       </div>
       <header id="header-site"> 
         <div className="container d-flex justify-content-between align-items-center">
+          <button className="btn nav-icon" onClick={btnToogleMenu}>
+            <img src="/image/nav-mobile.svg" />
+          </button>
           <Link id="logo" to="/">
             <img src='/image/logo.png' alt="logo" />
           </Link>  
@@ -34,7 +68,9 @@ const Header = () => {
               <img src="/image/search.svg" alt=""/>
             </button>
             <button className="btn">
-              <img src="/image/heart.svg" alt=""/>
+              <Link to="/wishlist">
+                <img src="/image/heart.svg" alt=""/>
+              </Link>
             </button>
             <button className="btn" id="userLogin">
               <img src="/image/user.svg" alt=""/>
@@ -45,13 +81,15 @@ const Header = () => {
           </div>
         </div>
       </header>
-      
+    </div>
+      <NavMobi menu={menu} btnToogleMenu={btnToogleMenu}/>
       <SideNav 
         state={open}
         btnToogle={btnToogle}
        />
        <Overlay state={open} btnToogle={btnToogle}/>
-    </div>
+       <Overlay state={menu} btnToogle={btnToogleMenu}/>
+    </>
   )
 }
 

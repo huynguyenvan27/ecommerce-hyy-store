@@ -12,8 +12,8 @@ const ListProduct = ({data}) =>{
         </h1>
         <div className="row responsive">
           {data.map(product=>
-            <div className="col col-lg-2 col-md-4 col-sm-6 col-6">
-              <Card key={product.id} product={product} />
+            <div className="col col-lg-2 col-md-4 col-sm-6 col-6" key={product.id}>
+              <Card  product={product} />
             </div>
           )}
         </div>

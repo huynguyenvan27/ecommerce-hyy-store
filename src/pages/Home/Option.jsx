@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Option = () =>{
+  
   return(
     <div id="option-sex">
       <div className="container-fuild">

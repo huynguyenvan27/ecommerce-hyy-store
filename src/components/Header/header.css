@@ -11,7 +11,7 @@
   height:55px;
 }
 .nav-icon{
-  display: none;
+  display: none !important;
 } 
 .topbar{
   background-color: var(--black-color);
@@ -63,4 +63,25 @@
 .underline-css:hover::before {
   transform-origin: bottom left;
   transform: scaleX(1);
+}
+
+
+
+.header.show{
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  transition: 0.3s ease-out;
+  z-index: 40;
+  opacity: 1;
+}
+.header.hide{
+  width: 100%;
+  z-index: 40;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
+  position: fixed;
+  top: -100%;
+  opacity: 0;
+  transition: 0.5s ease-out;
 }

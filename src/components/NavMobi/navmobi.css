@@ -1,0 +1,35 @@
+#nav-mobile {
+  position: fixed;
+  z-index: 7 !important;
+  top: 0;
+  left: 0;
+}
+.navMenu {
+  height: 100%;
+  margin-left: -350px;
+  max-width: 350px;
+  width: 100%;
+  background-color: var(--white-color);
+  transition: 0.5s;
+  padding: 5px 15px 15px;
+  overflow: auto;
+}
+.navMenu.open{
+  margin-left: 0px;
+}
+
+.nav-mobile__link{
+  padding:8px 0;
+  font-size: 1.6rem;
+  color: var(--black-color);
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+.nav-mobile__link:not(.nav-mobile__link:last-child){
+  border-bottom: 1px dashed var(--border-color);
+} 
+  
+
+.closebtn.btn{
+  font-size: 3rem;
+}

@@ -1,0 +1,13 @@
+.form-group{
+  margin-bottom: 10px;
+}
+.invalid-feedback{
+  color: var(--red-color) ;
+  font-size: 1.3rem !important;
+}
+.form-control{
+  font-size: 1.7rem !important;
+}
+.form-label{
+  font-size: 1.6rem;
+}

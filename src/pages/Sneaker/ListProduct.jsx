@@ -1,7 +1,7 @@
 import Card from "../../components/Card/Card"
 import Fade from "react-reveal/Fade"
 import LayoutPage from "./LayoutPage"
-const ListProduct = ({products,handleSort}) => {
+const ListProduct = ({products}) => {
 
 
     
@@ -10,7 +10,7 @@ const ListProduct = ({products,handleSort}) => {
       bottom
       Cascade = { true}
      >
-    <LayoutPage handleSort={handleSort}/>
+    <LayoutPage data={products}/>
     <div className="row" id="product">
 
    

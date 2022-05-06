@@ -33,7 +33,7 @@ const ProductdtInfo = ({product,handleAddToCart,handleWishList,handleSize}) => {
           }
       </div>
       <div className="sneaker-size__list d-flex flex-wrap mt-5">
-        <SizeList sizeList={product.list_size} handleSize={handleSize}/>
+        <SizeList sizeList={product.list_size}/>
       </div>
       <div className="d-flex align-items-center mt-5">
         <button className="btn--primary" onClick={()=>handleAddToCart(product.id)}>

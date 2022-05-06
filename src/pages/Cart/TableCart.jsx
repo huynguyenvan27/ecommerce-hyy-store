@@ -35,7 +35,7 @@ const TableCart = () => {
                     <th>Sản phẩm</th>
                     <th>Số lượng</th>
                     <th>Tạm tính</th>
-                    <th></th>
+                    <th></th>   
                 </tr>
             </thead>
             <tbody className="list-cart-item-final">

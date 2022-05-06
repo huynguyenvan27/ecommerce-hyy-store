@@ -1,21 +1,7 @@
 /* popup */
-/* .popup{
-  background-color: #fefefe;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  z-index: 55;
-  padding: 15px;
-  width: 90%; 
-  max-width: 900px;
-  animation-name: zoom;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  border: 1px solid var(--grey-color);
-  border-radius: 5px;
-  overflow: auto;
-} */
+.popup{
+  max-width: 760px;
+}
 .popup-footer{
   border-top: 1px solid var(--border-color);
 }
@@ -71,4 +57,21 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0,0,0,0.7);
+}
+
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateY(-80px);
+  transition: all 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateY(-80px);
 }

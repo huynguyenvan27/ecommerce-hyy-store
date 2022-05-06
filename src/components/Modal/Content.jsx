@@ -1,27 +1,58 @@
-import { useContext,useCallback } from 'react';
+
 import { FaFacebookF,FaTwitter,FaYoutube,FaInstagram } from 'react-icons/fa';
+import { BsChevronLeft,BsChevronRight } from "react-icons/bs";
 import SizeList from '../../pages/Productdt/SizeList'
 import { Link } from 'react-router-dom';
-import './content.css'
 import Modal from 'react-modal/lib/components/Modal';
+import Slider from 'react-slick';
+import './content.css'
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+      <BsChevronRight
+        className={className}
+        style={{ ...style, display: "block", color: "black",right: "10px", zIndex:"20"}}
+        onClick={onClick}
+      />
+  );
+}
 
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <BsChevronLeft
+      className={className}
+      style={{ ...style, display: "block", color: "black",left: "10px", zIndex:"20" }}
+      onClick={onClick}
+    />
+  );
+}
 
-const Content = ({productdt,handleAddToCart,handleWishList,handleSize, sizeList,isOpen,onRequestClose,closeModal,style}) =>{
+const Content = ({productdt,handleAddToCart,handleAddToWishList,isOpen,onRequestClose,closeModal,style}) =>{
 
   let formatter = new Intl.NumberFormat("en-US", {
     currency: "VND",
   });
 
 
-
+  const settings = {
+    dots: false,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    fade : true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  };
 
 
 
   return(
     <Modal
     isOpen={isOpen}
-    // onAfterOpen={onAfterOpen}
     onRequestClose={onRequestClose}
     style={style}
     overlayClassName="Overlay"
@@ -35,7 +66,13 @@ const Content = ({productdt,handleAddToCart,handleWishList,handleSize, sizeList,
       return(
         <div className="row">
           <div className="col-7">
-            <img src={item.img} alt="" />
+            <Slider {...settings}>
+            {item.imgLg.map(img=>{
+              return(
+                  <img key={img} src={img} style={{width:"300px"}}/>
+                  )
+                })}
+            </Slider>
           </div>
           <div className="col-5">
             <div className="sneaker-info ms-3">
@@ -56,7 +93,7 @@ const Content = ({productdt,handleAddToCart,handleWishList,handleSize, sizeList,
           <span className="price-old">{formatter.format(item.price)}đ</span></div>
               <div className="text mt-3">Thương hiệu : ADIDAS</div>
               <div className="sneaker-size__list d-flex flex-wrap mt-3">
-                <SizeList handleSize={handleSize} sizeList={sizeList} />
+                <SizeList  sizeList={item.list_size} />
               </div>
               <div className="d-flex align-items-center justify-content-between flex-wrap">
                 <button className="btn--primary mt-5" onClick={()=>handleAddToCart(item.id)}>
@@ -65,7 +102,7 @@ const Content = ({productdt,handleAddToCart,handleWishList,handleSize, sizeList,
                 </button>
               </div>
               <div className="sneaker-favourite mt-5">
-                <button className="btn btn-light favourite btn-outline-danger" onClick={()=>{handleWishList(item.id)}}>
+                <button className="btn btn-light favourite btn-outline-danger" onClick={()=>{handleAddToWishList(item.id)}}>
                   <i className="bi bi-heart"></i>
                   <span className="like">Thêm vào yêu thích</span>
                   <span className="liked">Đã thêm vào yêu thích</span>
@@ -83,7 +120,7 @@ const Content = ({productdt,handleAddToCart,handleWishList,handleSize, sizeList,
     <Link to="#" className="icon-link"> <FaFacebookF/></Link>
     <Link to="#" className="icon-link"> <FaTwitter /></Link>
     <Link to="#" className="icon-link"> <FaYoutube /></Link>
-    <Link to="#" className="icon-link"><FaInstagram/></Link>
+    <Link to="#" className="icon-link"> <FaInstagram/></Link>
   </div>
 </div>
 

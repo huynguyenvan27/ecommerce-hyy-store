@@ -1,10 +1,37 @@
-
+import Slider from "react-slick";
 
 const Policy = () =>{
+  const settings = {
+    dots: false,
+    arrows: false,
+    slidesToShow: 4,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        autoplay: true,
+        autoplaySpeed: 2000,
+          }
+        },
+      {
+        breakpoint: 600,
+        settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        }
+      },
+        ]
+  };
+
+
   return (
     <div id="policy">
       <div className="container">
-        <div className="row auto-policy d-flex">
+        <Slider {...settings}>
           <div className="policy-layout d-flex justify-content-center col-lg-3">
             <div className="policy-img">
               <img src="/image/Vector.svg" alt="Free ship"/>
@@ -41,7 +68,7 @@ const Policy = () =>{
               <p>Luôn luôn online 24/7</p>
             </div>
           </div>
-        </div>
+        </Slider>
       </div>
     </div>
   )

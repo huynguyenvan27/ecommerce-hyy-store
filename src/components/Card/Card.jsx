@@ -25,18 +25,16 @@ const Card = ({product}) =>{
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
-      maxWidth: '1000px',
-      with : "100%",
-      height : "100%",
-      maxHeight : " 600px",
+      zIndex: "4",
       transform: 'translate(-50%, -50%)',
     },
   };
-  
-  const {size,setSize} = useContext(myContext)
-  const handleSize = useCallback((e) => setSize(e))
+  const {open} = useContext(myContext);
+  const {setOpen} = useContext(myContext);
 
-  let subtitle;
+
+  const {size,setSize} = useContext(myContext)
+
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -53,27 +51,33 @@ const Card = ({product}) =>{
 
   const WishList = useSelector(selectAddWishList)
   const View = useSelector(selectView)
-
+  const products = useSelector(selectAllProducts)
   const dispath = useDispatch()
   const handleAddToCart = (id) => {
-    dispath(addOption({id:id,size:42}));
-    toast.success(`
-      ${product.name}
-      Đã thêm sản phẩm vào giỏ hàng`,{
-      position: "bottom-right",
-      autoClose: 1000,
+    if(size != null) {
+      dispath(addOption({id:id,size:size}))
+      setOpen(true)
+      closeModal()
+      setSize(null)
+    }else{
+      toast.warn(`
+      Chọn Size trước khi thêm vào giỏ hàng`,{
+      position: "top-center",
+      autoClose: 3000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: false,
       draggable: true,
       progress: undefined,
     });
+    }
   }
+
   const handleAddToWishList = (id) => {dispath(addWishList(id));
     toast.success(`
     ${product.name}
     Đã thêm sản phẩm vào yêu thích`,{
-      position: "bottom-left",
+      position: "top-center",
       autoClose: 1000,
       hideProgressBar: true,
       closeOnClick: true,
@@ -87,14 +91,28 @@ const Card = ({product}) =>{
     dispath(review(id))
     openModal()
   }
-  // console.log(View);
-  const products = useSelector(selectAllProducts)
+  
+
+  const handleAddToCartQuick = (id) => {
+      dispath(addOption({id:id,size:"42"}));
+      toast.success(`
+    ${product.name}
+    Đã thêm sản phẩm vào giỏ hàng`,{
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+  });
+  }
+
   return(
     <>
     <Content productdt={View}
       isOpen={modalIsOpen}
       closeModal={closeModal}
-      // onAfterOpen={afterOpenModal}
       onRequestClose={closeModal}
       style={customStyles}
       handleAddToCart={handleAddToCart}
@@ -110,7 +128,7 @@ const Card = ({product}) =>{
           <img src={product.img} alt={product.name} title={product.name}/>
         </Link>
         <div className="text-center quick-action">
-          <button className="add-to-cart" onClick={()=> handleAddToCart (product.id)}>
+          <button className="add-to-cart" onClick={()=> handleAddToCartQuick (product.id)}>
           <span className="icon-title">Thêm vào giỏ hàng</span>
             <i className="bi bi-bag"></i>
           </button>

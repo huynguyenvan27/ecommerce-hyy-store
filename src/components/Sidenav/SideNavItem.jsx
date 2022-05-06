@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom"
 
 
-const SideNavItem = ({product,quantity,handleRemove,size}) => {
+const SideNavItem = ({product,quantity,handleRemove,size,btnToogle}) => {
   let formatter = new Intl.NumberFormat("en-US", {
     currency: "VND",
   });
   return (
-    <div className="d-flex flex-column mini-cart__item">
+    <div className="d-flex flex-column mini-cart__item" >
       <div className="d-flex justify-content-between align-items-start">
-      <Link to={`product/${product.id}`} className="product-img">
+      <Link to={`product/${product.id}`} onClick={btnToogle} className="product-img">
         <img src={product.img} alt={product.name}/>
       </Link>
       <div className="product-info d-flex flex-column">
-        <Link to={`product/${product.id}`} className="product-name text-12">{product.name}</Link>
+        <Link to={`product/${product.id}`} onClick={btnToogle} className="product-name text-12">{product.name}</Link>
         <span>
           <label>SL:</label>
           <label className="quantity">{quantity}</label>

@@ -4,43 +4,43 @@ import Slider from "react-rangeslider"
 import 'react-rangeslider/lib/index.css'
 import { useState } from "react"
 import CategorySize from "./CategorySize"
-import { selectBrand } from "../../store/slices/filter.slice"
+import { removeSize, selectBrand, selectSize } from "../../store/slices/filter.slice"
 import { useSelector,useDispatch } from "react-redux"
 import { removeBrand ,removeALlBrand} from "../../store/slices/filter.slice"
-const Category = ({ list ,size,handleFilterBrand,handleSize}) => {
+const Category = ({ list ,handleFilterBrand}) => {
   const [horizontal,setHorizontal] = useState(0)
   const  handleChangeHorizontal = value => {
     setHorizontal(value)
   };
-  let formatter = new Intl.NumberFormat("en-US", {
-    currency: "VND",
-  });
+  // let formatter = new Intl.NumberFormat("en-US", {
+  //   currency: "VND",
+  // });
   const htmlFormatprice = value => {
     if(value == 0){
       return "Mặc định"
     }
-    else if(value<2 && value>0){
+    else if(value<= 2 && value>0){
       return `Nhỏ hơn 2 triệu`
-    }else if(value>2 &&value<5 ){
+    }else if(value>2 &&value<=5 ){
       return "Từ 2 đến 5 triệu"
-    }else if(value>5 && value<8){
+    }else if(value>5 && value<=8){
       return "Từ 5 đến 8 triệu"
     }else{
       return "Trên 8 triệu"
     }
   }
 
-  const dispatch = useDispatch()
-  const listBrand = useSelector(selectBrand)
-  const handleRemoveBrand = (item) =>{
-    dispatch(removeBrand(item))
-  }
+  // const dispatch = useDispatch()
+  // const listBrand = useSelector(selectBrand)
+  // const handleRemoveBrand = (item) =>{
+  //   dispatch(removeBrand(item))
+  // }
   return (
     <div className="filter-block">
     <div class="filter-product">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h1 class="category-title">LỌC</h1>
-      {listBrand.length >0 ?
+      {/* {listBrand.length >0 ?
         <button class="btn--primary" onClick={()=>dispatch(removeALlBrand())}>Bỏ lọc</button>
         : ""
       }
@@ -48,13 +48,13 @@ const Category = ({ list ,size,handleFilterBrand,handleSize}) => {
     <div class="btn-add-block">
       {listBrand.length >0 ? listBrand.map(item=>{
         return (
-          <button class="btn btn-outline-danger" key={item} onClick={()=>handleRemoveBrand(item)}>
+          <button class="btn btn-outline-danger me-2" key={item} onClick={()=>handleRemoveBrand(item)}>
             <i class="bi bi-x-circle"></i>
             <label htmlFor="category-option__added">{item}</label>
           </button>
         )
       }):""
-      }
+      } */}
 
       </div>
     </div>
@@ -82,7 +82,7 @@ const Category = ({ list ,size,handleFilterBrand,handleSize}) => {
           style={{fontSize:"1.2rem"}}
         >{htmlFormatprice((horizontal))}</div>
       </div>
-      <CategorySize handleSize={handleSize}/>
+      <CategorySize/>
     </div>
       <div className="category-product d-flex flex-column">
           <h1>Danh mục sản phẩm</h1>

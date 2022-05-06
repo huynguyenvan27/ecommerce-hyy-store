@@ -6,7 +6,7 @@ const listProductSlice =  createSlice({
   name : "listProduct",
   initialState :{
     brand: [],
-    size : null,
+    size : [],
     string :"",
     items: [],
     data : []
@@ -15,19 +15,11 @@ const listProductSlice =  createSlice({
     loadData : (state,{payload}) =>{
       state.data = payload
     },
-
-    sortAsc : (state) =>{
-      const sortPriceAsc  = state.items.sort((a, b) => a.price - b.price)
-      return {
-        ...state,
-        items: sortPriceAsc
-    }},
-    sortDes : (state) =>{
-      let sortPriceDes = state.items.sort((a, b) => b.price - a.price)
-      return {
-          ...state,
-          items: sortPriceDes
-      }
+    sortAsc : (state,{payload}) =>{
+      payload.sort((a, b) => a.price - b.price)
+   },
+    sortDes : (state,{payload}) =>{
+      payload.sort((a, b) => b.price - a.price)
     },
     filterBrand : (state,{payload}) =>{
         state.brand.push(payload)      
@@ -43,7 +35,11 @@ const listProductSlice =  createSlice({
       state.string = payload
     },
     filterSize : (state,{payload}) =>{
-      state.size = payload
+      state.size.push(payload)
+    },
+    removeSize : (state,{payload}) =>{
+      const index = state.size.findIndex(item => item == payload);
+      state.size.splice(index,1)
     }
   }
 
@@ -51,17 +47,28 @@ const listProductSlice =  createSlice({
 
 
 export default listProductSlice.reducer;
-export const {sortAsc,sortDes,filterBrand,filterSize,removeBrand,removeALlBrand,searchItem,loadData} = listProductSlice.actions
-
+export const {sortAsc,sortDes,filterBrand,filterSize,removeBrand,removeALlBrand,searchItem,loadData,removeSize} = listProductSlice.actions
 
 export const selectBrand  = (state) => state.listProduct.brand
+export const selectSize = (state) => state.listProduct.size
+
+
 export const selecfilterBrand = (state) =>
   state.products.filter((p) => state.listProduct.brand.includes(p.brand.toLowerCase()))
 
-export const selectfilterSize = (state) =>state.products.filter(item => item.list_size.includes(state.listProduct.size))
+export const selectfilterSize = (state) =>state.products.filter(item => item.list_size.some(z=>state.listProduct.size.includes(z)))
 
 export const selectSearch = (state) => 
-  state.products.filter(item=>item.name.toLowerCase().includes(state.listProduct.string))
+  state.products.filter(item=>item.name.toLowerCase().includes(state.listProduct.string.payload))
+
+export const selectString = (state) => state.listProduct.string.payload
+
+export const selectMultipleFilter = (state) => 
+  state.products.filter((p) => state.listProduct.brand.includes(p.brand.toLowerCase()))
+  .filter((item) =>
+      item.list_size.some(z=>state.listProduct.size.includes(z)))
 
 
-export const selectData = (state) => state.data
+
+
+

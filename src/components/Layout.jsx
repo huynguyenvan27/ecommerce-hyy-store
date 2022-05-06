@@ -4,8 +4,8 @@ import Footer from "./Footer/Footer";
 import Newsletter from "./Newsletter/Newsletter";
 import { Provider } from "react-redux";
 import store from "../store/store";
-import Seperate from "./Seperate/Seperate";
-import { createContext ,useState} from "react";
+import Seperate from "./Breadcrumbs/Breadcrumbs";
+
 
 
 const Layout = (props) => {

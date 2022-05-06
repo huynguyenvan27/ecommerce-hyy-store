@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import './home.css'
 import Policy from "./Policy";
 import Slider from "react-slick";
 import Option from "./Option";
@@ -12,6 +11,7 @@ import Footer from "../../components/Footer/Footer";
 import { useSelector } from "react-redux";
 import { selectAllProducts } from "../../store/slices/product.slice";
 import { ToastContainer } from "react-toastify";
+import './home.css'
 const Home = () =>{
   const products = useSelector(selectAllProducts)
 

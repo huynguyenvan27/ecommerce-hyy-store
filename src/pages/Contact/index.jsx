@@ -1,5 +1,6 @@
 
 import './contact.css'
+import ContactForm from '../../components/ContactForm/ContactForm';
 const Contact = () =>{
 
   return( 
@@ -20,31 +21,9 @@ const Contact = () =>{
           </div>
         </div>
         <div className="col col-lg-6 col-12 mt-md-5 mt-lg-0 mt-sm-5 mt-5">
+         
           <h1 className="heading-1 line-seperate">Thông tin liên hệ:</h1>
-          <form  name="pmForm" id="pmForm">
-            <div className="contact-input">
-              <label htmlFor="contact-input__name">Họ và tên:</label>
-              <input type="text" className="input-className" name="name" id="contact-input__text"/>
-
-            </div>
-            <div className="contact-input">
-              <label htmlFor="contact-input__phone">Số điện thoại: </label>
-              <input type="number" className="input-className" name="phone" id="contact-input__phone"/>
-
-            </div>
-            <div className="contact-input">
-              <label htmlFor="contact-input__email">Email:</label>
-              <input type="email" className="input-className" name="email" id="contact-input__email"/>
-
-            </div>
-            <div className="contact-input">
-              <label htmlFor="contact-input__message">Nội dung liên hệ:</label>
-              <textarea name="text" className="input-className" id="contact-input__message" cols="30" rows="5"></textarea>
-            </div>
-            <div className="text-center">
-              <a href="javascript:void(0)" className="btn--primary" onclick="valiadation()" >Gửi thông tin</a>
-            </div>
-          </form>
+          <ContactForm />
         </div>
 
       </div>

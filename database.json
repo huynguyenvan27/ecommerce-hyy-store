@@ -26,8 +26,6 @@
         41.5,
         42,
         42.5,
-        43,
-        43.5,
         44
       ],
       "discount": 0.2,
@@ -98,9 +96,7 @@
         41.5,
         42,
         42.5,
-        43,
-        43.5,
-        44
+        45
       ],
       "discount": 0,
       "brand": "Nike",
@@ -131,13 +127,11 @@
       "price": 3000000,
       "name": "Nike Air Force 1 Low By You - Honeycomb/Smoke Grey/Magic Flamingo",
       "list_size": [
+        39,
         41,
         41.5,
         42,
-        42.5,
-        43,
-        43.5,
-        44
+        42.5
       ],
       "discount": 0,
       "brand": "Nike",
@@ -169,8 +163,6 @@
         41,
         41.5,
         42,
-        42.5,
-        43,
         43.5,
         44
       ],

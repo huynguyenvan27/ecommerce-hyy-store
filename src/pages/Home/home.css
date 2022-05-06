@@ -7,6 +7,7 @@
   background-position: center ;
   background-size: cover;
   position: relative;
+  margin-top: 105px;
 }
 .banner-title{
   position: absolute;
@@ -111,8 +112,6 @@
   padding: 15px 0;
 }
 
-.deal-info{
-}
 .deal-title{
   font-size: 7.2rem;
   font-weight: 500;

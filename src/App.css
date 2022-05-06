@@ -3,10 +3,10 @@ body{
   color: var(--black-color);
 }
 ul{
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 ul li{
-  list-style: none;
+  list-style: none !important;
 }
 a{
   text-decoration: none !important;
@@ -22,7 +22,7 @@ a:hover{
 }
 img{
   object-fit: cover;
-  width: 100%;
+  width: 100% !important;
 }
 
 
@@ -218,3 +218,338 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 8px;
   font-size: 2rem;
 }
+
+
+/* responsive web */
+@media only screen and (min-width: 1200px){
+  /* name-colections */
+    .side-filter.btn  {
+      display: none !important;
+    }
+  }
+  
+  @media only screen and (max-width: 1200px){
+    .side-filter.btn{
+      display: none !important;
+    }
+    .banner-title h1{
+      font-size: 7rem !important;
+    }
+  }
+  
+  @media only screen and (max-width: 992px){
+    /* text-font-size */
+    .heading-page{
+      font-size: 3.2rem !important;
+      margin: 30px 0;
+    }
+    .heading-1{
+      margin-bottom: 10px !important;
+    }
+    .heading-1.line-seperate{
+      margin-bottom: 20px;
+    }
+  /* header */
+  
+    .header-nav{
+      display: none !important;
+    }
+    .header-icon>button:nth-child(1){
+      display:none !important;
+    }
+    .header-icon>button:nth-child(2){
+      display:none !important;
+    }
+    .header-icon>button:nth-child(3){
+      display:none !important;
+    }
+    .nav-icon{
+      display: block !important;
+    }
+    /* card */
+    .quick-action{
+      opacity: 0.9;
+    }
+  
+    /* banner */
+    .banner-title h1{
+      font-size: 6rem !important;
+    }
+  
+  
+    /* newsletter */
+    #newsletter .row>.newsletter-input{
+      margin: 10px 0 !important;
+    }
+  
+    /* blog */
+    .heading-blog{
+      font-size: 3rem !important;
+    }
+    .news-list .news-block{
+      flex-direction: column!important;
+  
+    }
+   
+    .news-list .news-info{
+      margin-left: 0;
+      margin-top: 0px;
+      margin-bottom: 5px;
+    }
+    /* sneaker */
+    #list-product{
+      margin-top: 20px;
+    }
+    .btn-filer-product{
+      display: inline-block;
+    }
+    .btn.layout-page-th{
+      display: none;
+    }
+  
+    
+    #filter-product{
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s linear;
+      background-color: #f1f1f1;
+    }
+  
+    .side-filter.btn{
+      display: block !important;
+    }
+    /* contact */
+  
+    .content-page .col{
+      padding: 0 !important;
+    }
+  
+  
+  }
+  
+  @media only screen and (max-width: 768px){
+    .quick-review{
+      display: none !important;
+    }
+    .category-name>a{
+      font-size: 1.8rem !important;
+    }
+    /* sneaker */
+    .btn-cart-list{
+      padding: 5px;
+    }
+  
+  
+    /* footer */
+    footer .container{
+      text-align: center !important;
+  
+    }
+    footer .container .row>div{
+      margin-top: 20px !important;
+    }
+  
+    /* table */
+    table thead{
+      display: none !important;
+    }
+    table tr{
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    table td{
+      display: flex;
+      justify-content: space-between;
+      padding-right: 10px;
+      align-items: center;
+  
+    }
+    table tbody td:not(td:first-child)::before{
+      display: block;
+      content:attr(data) " ";
+      font-size: 1.6rem !important;
+      font-weight: 500;
+    }
+    #code-input{
+      font-size: 1.3rem !important;
+    }
+  
+    /* blog */
+  
+    .heading-blog{
+      font-size: 2.2rem !important;
+    }
+    /* index */
+    .deal-title{
+      font-size: 5rem !important;
+    }
+    .slider-nav{
+      display: none;
+    }
+    .slick--slick-next{
+      right: 10px;
+    }
+    .slick--slick-prev{
+      left: 10px;
+    }
+    .banner-title h1{
+      font-size: 5rem !important;
+    }
+    #shop-now h1{
+      font-size: 1.8rem !important;
+      bottom: 15%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px){
+    /* text-font-size */
+    .heading-page{
+      font-size: 2.4rem !important;
+      margin: 20px 0;
+    }
+    .heading-1{
+      font-size: 1.6rem !important;
+    }
+    .heading-blog{
+      font-size: 2rem !important;
+    }  
+    /* component */
+   
+    .topbar p{
+      font-size: 1rem !important;
+    }
+    #header-site{
+      padding: 20px 0;
+    }
+    #logo{
+      width: 55px ;
+      height: 30px;
+    }
+    .main-name{
+      font-size: 2.5rem !important;
+    }
+    .category-name>a{
+      font-size: 1.6rem !important;
+    }
+    .col{
+      padding: 0 5px;
+    }
+    .quick-action button{
+      padding:2px 6px;
+      margin: 0 8px;
+    }
+  
+    .btn--primary,.btn--white{
+      font-size: 1.4rem !important;
+    }
+    .btn-link{
+      font-size: 1.4rem !important;
+    }
+    .content-page .col{
+      padding: 0px 15px;
+    }
+    footer{
+      padding: 30px 0;
+    }
+  
+    #option-sex h1{
+      font-size: 3.6rem !important;
+    }
+    /* sneaker-card */
+    .name-tag{
+      margin-top: 5px;
+      font-size: 1.4rem !important;
+      font-weight: 400;
+    }
+    .sneaker-price span{
+      font-size: 1.4rem !important;
+    }
+    
+  
+    /* table */ 
+  
+  
+  
+    /* contact */
+    .contact-input{
+      margin-bottom: 0px;
+    }
+    .contact-map{
+      margin-top: 50px;
+    }
+    .contact-map iframe{
+      max-height: 300px;
+  
+    }
+    /* blog */
+    .news-list .news-info a{
+      font-size: 1.8rem !important;
+    }
+    /* index */
+    .banner-title h1{
+      font-size: 3rem !important;
+    }
+    #shop-now{
+      padding: 4px;
+    }
+    #shop-now h1{
+      font-size: 1.2rem !important;
+      bottom: 15%;
+    }
+    #list-product{
+      margin-bottom: 30px;
+      margin-top: 25px;
+    }
+    .name-colection{
+      font-size: 2rem !important;
+      margin-bottom: 10px;
+    }
+    #option-sex h1{
+      font-size: 2.4rem !important;
+    }
+    .deal-title{
+      font-size: 4rem !important;
+    }
+    .deal-name{
+      font-size: 2rem !important;
+    }
+    .price-of-deal>.price-current{
+      font-size: 2rem !important;
+    }
+    .price-of-deal>.price-old{
+      font-size: 1.6rem !important;
+    }
+    .responsive--slick-dots{
+      margin-top: 0;
+    }
+    .responsive--slick-dots button{
+      margin: 0 3px;
+      height: 2px;
+    }
+    .slick--slick-dots {
+      bottom: 5px;
+    }
+    .slick--slick-dots button{
+      width: 1rem;
+      height: 1rem;
+    }
+    #hot-deal{
+      margin-top: 30px;
+    }
+    #news{
+      margin: 30px 0;
+    }
+    /* checkout */
+    .btn-option-pay{
+      padding: 2px 0;
+    }
+    .contact-input label {
+      font-size: 1.4rem !important;
+    }
+    .contact-input select{
+      font-size: 1.4rem !important;
+    }
+  }
+  
+  
+  

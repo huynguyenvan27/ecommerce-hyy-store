@@ -4,6 +4,8 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 const Contact = () =>{
 
   return( 
+    <div className="container">
+
     <div className="content-page">
     <h1 className="text-center heading-page">Chào mừng đến với Hyy store</h1>
     <div className="container">
@@ -38,6 +40,7 @@ const Contact = () =>{
     </div>
 
   </div>
+    </div>
   )
 }
 

@@ -8,11 +8,11 @@ const SideNavItem = ({product,quantity,handleRemove,size,btnToogle}) => {
   return (
     <div className="d-flex flex-column mini-cart__item" >
       <div className="d-flex justify-content-between align-items-start">
-      <Link to={`product/${product.id}`} onClick={btnToogle} className="product-img">
+      <Link to={`sneaker/${product.id}`} onClick={btnToogle} className="product-img">
         <img src={product.img} alt={product.name}/>
       </Link>
       <div className="product-info d-flex flex-column">
-        <Link to={`product/${product.id}`} onClick={btnToogle} className="product-name text-12">{product.name}</Link>
+        <Link to={`sneaker/${product.id}`} onClick={btnToogle} className="product-name text-12">{product.name}</Link>
         <span>
           <label>SL:</label>
           <label className="quantity">{quantity}</label>

@@ -1,0 +1,16 @@
+/* pagination */
+.pagination {
+  margin-top: 60px;
+  display: flex ;
+  justify-content: center;
+}
+.page-link {
+  font-size: 1.6rem;
+  color: var(--black-color);
+  padding: 5px 10px;
+  border: 1px solid var(--border-color);
+}
+.page-link.active{
+  background-color: var(--black-color);
+  color: white !important;
+}

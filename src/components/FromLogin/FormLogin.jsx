@@ -1,32 +1,66 @@
-import Modal from "react-modal/lib/components/Modal";
+import { useState } from 'react'
+import { useNavigate } from "react-router";
+import { useSigninMutation } from '../../services/user.service'
+import './formlogin.css'
 
-const FormLogin = () => {
+const FormLogin = ({modal,handleModal}) => {
+  const [func,setFunc] = useState(false)
+  const handleSetFunc = () => {
+    setFunc(!func)
+  }
+
+
+  // const [signin] = useSigninMutation();
+  // const navigate = useNavigate();
+
+  // const [user, setUser] = useState({
+  //     username: "",
+  //     password: "",
+  // });
+
+  // const handleChange = (e) => {
+  //     setUser({
+  //         ...user,
+  //         [e.target.name]: e.target.value,
+  //     });
+  // };
+
+  // const handleSubmit = (e) => {
+  //     e.preventDefault();
+
+  //     signin(user)
+  //         .then(() => {
+  //             navigate("/home");
+  //         })
+  //         .catch(() => {});
+  // };
+
   return (
-    <div id="myModal" class="modal">
-    <div class="modal-content">
-      <div class="close-modal">
-        <i class="bi bi-x-square-fill"></i>
+    <div id="myModal" className={modal? "modal lock" : "modal"}>
+    <div className="modal-content">
+      <div className="close-modal" onClick={handleModal}>
+        <i className="bi bi-x-square-fill"></i>
       </div>
-      <div class="modal__register">
-        <h3 class="heading-1 text-center">TẠO TÀI KHOẢN</h3>
+      <div className={func? "modal__register block" : "modal__register"}>
+        <h3 className="heading-1 text-center">TẠO TÀI KHOẢN</h3>
         <form action="">
           <input type="text" placeholder="Họ và tên:"/>
           <input type="email" placeholder="Email:"/>
-          <input type="password" placeholder="Mật khẩu:" autocomplete="on"/>
-          <input type="password" placeholder="Nhập lại mật khẩu:" autocomplete="on"/>
+          <input type="password" placeholder="Mật khẩu:" autoComplete="on"/>
+          <input type="password" placeholder="Nhập lại mật khẩu:" autoComplete="on"/>
         </form>
-        <button class="btn--primary">TẠO TÀI KHOẢN</button>
-        <button class="btn--white mt-5 mode-login" onclick="modeLogin()">QUAY LẠI ĐĂNG NHẬP</button>
+        <button className="btn--primary">TẠO TÀI KHOẢN</button>
+        <button className="btn--white mt-5 mode-login" onClick={handleSetFunc}>QUAY LẠI ĐĂNG NHẬP</button>
       </div>
-      <div class="modal__login">
-        <h3 class="heading-1 text-center">ĐĂNG NHẬP</h3>
+      <div className={func? "modal__login hide" : "modal__login"}>
+        <h3 className="heading-1 text-center">ĐĂNG NHẬP</h3>
         <form action="">
           <input type="email" placeholder="Email:"/>
-          <input type="password" placeholder="Mật khẩu:" autocomplete="on"/>
+          <input type="password" placeholder="Mật khẩu:" autoComplete="on"/>
         </form>
-        <a href="" class="">Quên mật khẩu?</a>
-        <button class="btn--primary">ĐĂNG NHẬP</button>
-        <button class="btn--white mt-5 mode-register" onclick="modeRegister()">ĐĂNG KÝ MỚI</button>
+        <a href="" className="">Quên mật khẩu?</a>
+        <button className="btn--primary">ĐĂNG NHẬP</button>
+        <button className="btn--white mt-5 mode-register" onClick={handleSetFunc}>ĐĂNG KÝ MỚI</button>
       </div>
     </div>
   </div>

@@ -1,25 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+const initialState = () => ({
+  brand: [],
+  size : [],
+  string :"",
+  data : []
+})
+
 const listProductSlice =  createSlice({
 
   name : "listProduct",
-  initialState :{
-    brand: [],
-    size : [],
-    string :"",
-    items: [],
-    data : []
-  },
+  initialState : initialState(),
   reducers : {
-    loadData : (state,{payload}) =>{
-      state.data = payload
-    },
-    sortAsc : (state,{payload}) =>{
-      payload.sort((a, b) => a.price - b.price)
-   },
-    sortDes : (state,{payload}) =>{
-      payload.sort((a, b) => b.price - a.price)
+    reset: (state) => initialState(),
+    loadData : (state,{payload}) => {
+      return{
+        ...state,
+        data : payload
+      }
     },
     filterBrand : (state,{payload}) =>{
         state.brand.push(payload)      
@@ -40,19 +39,46 @@ const listProductSlice =  createSlice({
     removeSize : (state,{payload}) =>{
       const index = state.size.findIndex(item => item == payload);
       state.size.splice(index,1)
-    }
+    },
+    sortAsc : (state,{payload}) =>{
+      const result =payload.sort((a, b) => a.price - b.price)
+      return{
+        ...state,
+        data : result
+      } 
+   },
+    sortDes : (state,{payload}) =>{
+      let result =payload.sort((a, b) => b.price - a.price)
+      return{
+        ...state,
+        data : result
+      }
+    },
+    sortAz : (state,{payload}) => {
+      let sortNameAsc = payload.sort((a, b) => a.brand.localeCompare(b.brand))
+      return {
+          ...state,
+          data: sortNameAsc
+      }
+    },
+    sortZa : (state,{payload}) => {
+      let sortNameDes = payload.sort((a, b) => (b.name).localeCompare(a.name))
+      return {
+          ...state,
+          data: sortNameDes
+      }
+    },
+   
   }
 
 })
 
 
 export default listProductSlice.reducer;
-export const {sortAsc,sortDes,filterBrand,filterSize,removeBrand,removeALlBrand,searchItem,loadData,removeSize} = listProductSlice.actions
+export const {reset,sortZa,sortAz,loadData,sortAsc,sortDes,filterBrand,filterSize,removeBrand,removeALlBrand,searchItem,removeSize} = listProductSlice.actions
 
 export const selectBrand  = (state) => state.listProduct.brand
 export const selectSize = (state) => state.listProduct.size
-
-
 export const selecfilterBrand = (state) =>
   state.products.filter((p) => state.listProduct.brand.includes(p.brand.toLowerCase()))
 
@@ -68,7 +94,7 @@ export const selectMultipleFilter = (state) =>
   .filter((item) =>
       item.list_size.some(z=>state.listProduct.size.includes(z)))
 
-
+export const selectSort = (state) => state.listProduct.data
 
 
 

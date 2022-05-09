@@ -1,0 +1,74 @@
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 7; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+.modal.lock{
+  display: block !important;
+}
+.modal input{
+  padding: 8px 10px;
+  font-size: 1.6rem;
+  width: 100%;
+  margin-bottom: 20px;
+  font-weight: 400;
+  outline: none;
+  border: 1px solid var(--black-color);
+}
+.modal input::placeholder{
+  font-size: 1.4rem;
+}
+.modal a{
+  font-size: 1.6rem;
+  color: #0d6efd;
+  margin: 8px 0;
+}
+.modal button{
+  width: 100%;
+}
+.modal-content {
+  background-color: #fefefe;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 20px;
+  padding-bottom: 30px;
+  width: 80%; 
+  max-width: 500px;
+  animation-name: animatetop;
+  animation-duration: 0.6s;
+  border: 1px solid var(--grey-color);
+}
+.close-modal{
+  color: var(--border-color);
+  float: right;
+  font-size: 2.2rem;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  cursor: pointer;
+}
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 50%; opacity: 1}
+}
+
+.modal__register{
+  display: none;
+}
+
+.modal__register.block{
+  display: block !important;  
+}
+.modal__login.hide{
+  display: none;
+}

@@ -39,7 +39,10 @@ const store = configureStore ({
       persistedState
     },
     middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productApi.middleware)
+    getDefaultMiddleware().concat([
+      productApi.middleware,
+      userApi.middleware,
+    ])
    })  
 
    

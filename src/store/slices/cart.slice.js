@@ -15,6 +15,10 @@ const cartSlice = createSlice({
                 })
             }
         },
+        removeWishList :(state,{payload}) =>{
+            const index = state.wishList.findIndex(item => item.productId == payload) ;
+            state.wishList.splice(index,1)
+        },
         review :(state,{payload}) =>{
             state.view = payload;
         },
@@ -52,7 +56,7 @@ const cartSlice = createSlice({
 
 
 export default cartSlice.reducer;
-export const {add,remove,decrease,increase,addOption,addWishList,review} = cartSlice.actions;
+export const {remove,decrease,increase,addOption,addWishList,review, removeWishList} = cartSlice.actions;
 
 
 export const selectCount = (state) =>

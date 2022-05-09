@@ -7,7 +7,7 @@
   background-position: center ;
   background-size: cover;
   position: relative;
-  margin-top: 105px;
+  margin-top: 93px;
 }
 .banner-title{
   position: absolute;
@@ -58,8 +58,9 @@
   font-size: 2rem;
   font-weight: 600;
 }
-#shop-now:hover{
-  background-color: var(--white-color);
+.btn#shop-now:hover{
+  background-color: var(--white-color) !important;
+  color: var(--black-color) !important
 }
 
 

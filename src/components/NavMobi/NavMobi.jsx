@@ -1,12 +1,11 @@
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import './navmobi.css'
 
-const NavMobi = ({menu,btnToogleMenu}) => {
+const NavMobi = ({menu,btnToogleMenu,handleModal}) => {
 
   return(
     <div className={menu ? 'navMenu open' : 'navMenu'} id="nav-mobile">
-      {/* <button className="closebtn btn" onClick={btnToogleMenu}>&times;</button> */}
       <nav className="d-flex flex-column" >
       <div className=" d-flex justify-content-between align-items-center">
         <h3>MENU</h3>
@@ -21,7 +20,7 @@ const NavMobi = ({menu,btnToogleMenu}) => {
       <Link to="/wishlist" className="nav-mobile__link" onClick={btnToogleMenu}>
         <span>Yêu thích</span>
       </Link>
-      <button className="btn--primary mt-5 nav-mobile__link" onClick={btnToogleMenu}>
+      <button className="btn--primary mt-5 nav-mobile__link" onClick={handleModal}>
         <span>Đăng nhập</span>
         <i className="bi bi-person-fill"></i>
       </button>

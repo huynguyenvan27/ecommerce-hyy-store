@@ -1,11 +1,11 @@
 import { Link,NavLink } from "react-router-dom"
-import './header.css'
 import {react , useCallback ,useEffect, useContext,useState} from 'react'
 import { myContext } from "../../App"
 import SideNav from "../Sidenav/SideNav"
 import Overlay from "../Overlay/Overlay"
 import NavMobi from "../NavMobi/NavMobi"
-      
+import FormLogin from "../FromLogin/FormLogin"
+import './header.css'
 const Header = () => {
   const {open} = useContext(myContext);
   const {setOpen} = useContext(myContext);
@@ -17,6 +17,18 @@ const Header = () => {
   const btnToogleMenu = () => {
     setMenu(!menu)
   }
+
+  // handle FormLogin
+
+  const [modal,setModal] = useState(false)
+  const handleModal = () => {
+    setModal(!modal)
+    setMenu(false)
+    setOpen(false)
+  }
+
+  
+
   // srcoll to top
   const [hide,setHide]= useState(false)
   const [lastScrollY,setLastScrollY] = useState(0)
@@ -72,7 +84,7 @@ const Header = () => {
                 <img src="/image/heart.svg" alt=""/>
               </Link>
             </button>
-            <button className="btn" id="userLogin">
+            <button className="btn" id="userLogin" onClick={handleModal}>
               <img src="/image/user.svg" alt=""/>
             </button>
             <button className="btn" onClick={btnToogle}>
@@ -82,11 +94,12 @@ const Header = () => {
         </div>
       </header>
     </div>
-      <NavMobi menu={menu} btnToogleMenu={btnToogleMenu}/>
+      <NavMobi menu={menu} btnToogleMenu={btnToogleMenu} handleModal={handleModal}/>
       <SideNav 
         state={open}
         btnToogle={btnToogle}
        />
+       <FormLogin modal={modal} handleModal={handleModal}/>
        <Overlay state={open} btnToogle={btnToogle}/>
        <Overlay state={menu} btnToogle={btnToogleMenu}/>
     </>

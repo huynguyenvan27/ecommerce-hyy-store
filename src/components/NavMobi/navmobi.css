@@ -1,6 +1,6 @@
 #nav-mobile {
   position: fixed;
-  z-index: 7 !important;
+  z-index: 56 !important;
   top: 0;
   left: 0;
 }
@@ -24,6 +24,7 @@
   color: var(--black-color);
   transition: 0.3s;
   text-transform: uppercase;
+  font-weight: 600;
 }
 .nav-mobile__link:not(.nav-mobile__link:last-child){
   border-bottom: 1px dashed var(--border-color);

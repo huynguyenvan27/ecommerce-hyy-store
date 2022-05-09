@@ -7,6 +7,7 @@ import store from './store/store'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import ScrollToTop from './components/ScollToTop/ScrollToTop'
+
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

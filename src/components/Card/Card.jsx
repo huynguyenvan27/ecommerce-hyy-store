@@ -124,7 +124,7 @@ const Card = ({product}) =>{
         <span className="number-sale">
           { product.discount!= 0 ? `-${product.discount*100}%` : ""}
         </span>
-        <Link to = {`/product/${product.id}`} className="product-link"> 
+        <Link to = {`/sneaker/${product.id}`} className="product-link"> 
           <img src={product.img} alt={product.name} title={product.name}/>
         </Link>
         <div className="text-center quick-action">
@@ -143,7 +143,7 @@ const Card = ({product}) =>{
 
         </div>
       </div>
-      <Link to = {`/product/${product.id}`} className="product-info">
+      <Link to = {`/sneaker/${product.id}`} className="product-info">
         <h1 className="name-tag" title={product.name}>{product.name}</h1>
       </Link>
       <div className="sneaker-price">

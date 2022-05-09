@@ -12,7 +12,7 @@
 /* checkout */
 
 #checkout-cart .product-name{
-  flex-basis:70% ;
+  flex-basis:60% ;
 } 
 
 
@@ -78,9 +78,6 @@ input:checked + .btn-option-pay {
 }
 
 
-#checkout-cart .product-name{
-  flex-basis:70% ;
-} 
 
 
 

@@ -5,15 +5,15 @@ import { myContext  } from "../../App";
 import { ToastContainer, toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../services/product.service";
-import { add,addOption } from "../../store/slices/cart.slice";
+import { addOption ,addWishList} from "../../store/slices/cart.slice";
 import Slider from "react-slick"
 import './productdt.css'
 import { useState ,useCallback,useContext} from "react";
-
+import Loading from "../../components/Loading/Loading";
 
 const Productdt = () =>{
 
-  const {open} = useContext(myContext);
+  // const {open} = useContext(myContext);
   const {setOpen} = useContext(myContext);
   const {size,setSize} = useContext(myContext);
 
@@ -40,10 +40,28 @@ const Productdt = () =>{
     });
     }
   }
+
+  const handleAddToWishList = (id) =>{
+    if(size != null) {
+      dispatch(addWishList(id))
+    }else{
+      toast.success(`
+      Đã thêm sản phẩm vào yêu thích`,{
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+    }
+  }
+
   const [nav1,setNav1] = useState ()
   const [nav2,setNav2] = useState ()
 
-  if (isFetching) return <p>Đang lấy thông tin sản phẩm có id {id}</p>;
+  if (isFetching) return <Loading/>
 
 
   return (
@@ -88,11 +106,12 @@ const Productdt = () =>{
             <ProductdtInfo  
               product={data}
               handleAddToCart = {handleAddToCart}
+              handleWishList = {handleAddToWishList}
             />
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer style={{fontSize : "1.6rem"}}/>
     </div>
   )
 }

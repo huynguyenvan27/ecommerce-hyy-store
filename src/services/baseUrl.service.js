@@ -4,10 +4,6 @@ const productStoreBaseQuery = fetchBaseQuery ({
 });
 
 
-const addressBaseQuery = fetchBaseQuery({
-  baseUrl : "https://provinces.open-api.vn/api/?depth=3"
-})
-
 
 const userBaseQuery = fetchBaseQuery({
   baseUrl: "https://todo-api-with-auth.herokuapp.com/api/auth/",
@@ -23,4 +19,4 @@ const userBaseQuery = fetchBaseQuery({
   },
 });
 
-export {productStoreBaseQuery,addressBaseQuery,userBaseQuery};
+export {productStoreBaseQuery,userBaseQuery};

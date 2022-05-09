@@ -318,13 +318,7 @@ input[type="number"]::-webkit-outer-spin-button {
     .side-filter.btn{
       display: block !important;
     }
-    /* contact */
-  
-    .content-page .col{
-      padding: 0 !important;
-    }
-  
-  
+
   }
   
   @media only screen and (max-width: 768px){
@@ -357,10 +351,11 @@ input[type="number"]::-webkit-outer-spin-button {
       display: flex !important;
       flex-direction: column !important;
     }
-    table td{
+
+    #cart-bill td{
       display: flex;
       justify-content: space-between;
-      padding-right: 10px;
+     
       align-items: center;
   
     }
@@ -417,9 +412,6 @@ input[type="number"]::-webkit-outer-spin-button {
    
     .topbar p{
       font-size: 1rem !important;
-    }
-    #header-site{
-      padding: 20px 0;
     }
     #logo{
       width: 55px ;

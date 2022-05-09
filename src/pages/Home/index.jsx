@@ -38,7 +38,6 @@ const Home = () =>{
   };
   return( 
     <>
-    <Header/>
     <div id="banner">
       <div className="slider">
       <Slider {...settings}>
@@ -78,7 +77,6 @@ const Home = () =>{
       <DealHot />
       <News/>
       <Newsletter/>
-      <Footer />
       <ToastContainer 
           position="bottom-right"
           autoClose={3000}

@@ -66,7 +66,7 @@ const TableCart = () => {
                             />
                         </td>
                         <td data="Tạm tính:">
-                            <label className="product-price color--red">{formatter.format(item.quantity*item.product.price)}</label>
+                            <label className="product-price color--red">{formatter.format(item.quantity*item.product.price)}đ</label>
                         </td>
                         <td>
                             <button className="btn-remove btn" onClick={()=>handleRemove(item.product.id)}><i className="bi bi-trash"></i></button>

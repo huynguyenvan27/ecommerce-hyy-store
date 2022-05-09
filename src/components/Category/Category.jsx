@@ -69,7 +69,7 @@ const Category = ({ list ,handleFilterBrand}) => {
           }
         </ul>
       </div>
-      <div className="category-layout">
+      {/* <div className="category-layout">
         <h1 className="category-title">Giá thành</h1>
         <Slider 
           min={0}
@@ -81,7 +81,7 @@ const Category = ({ list ,handleFilterBrand}) => {
         <div className='value'
           style={{fontSize:"1.2rem"}}
         >{htmlFormatprice((horizontal))}</div>
-      </div>
+      </div> */}
       <CategorySize/>
     </div>
       <div className="category-product d-flex flex-column">

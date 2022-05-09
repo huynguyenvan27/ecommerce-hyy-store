@@ -91,7 +91,7 @@ const Content = ({productdt,handleAddToCart,handleAddToWishList,isOpen,onRequest
               <div className="sneaker-price mt-3">
           <span className="price-current">{formatter.format(parseInt(item.price - item.price*item.discount))}đ</span>
           <span className="price-old">{formatter.format(item.price)}đ</span></div>
-              <div className="text mt-3">Thương hiệu : ADIDAS</div>
+              <div className="text mt-3">Thương hiệu :{item.brand}</div>
               <div className="sneaker-size__list d-flex flex-wrap mt-3">
                 <SizeList  sizeList={item.list_size} />
               </div>

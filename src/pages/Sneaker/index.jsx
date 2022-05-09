@@ -1,14 +1,16 @@
 
-import { useCallback, useState } from "react";
+import { useEffect, useState } from "react";
+import Pagination from "../../components/Pagination/Pagination";
 import ListProduct from "./ListProduct";
 import Category from "../../components/Category/Category";
 import { useSelector,useDispatch} from "react-redux";
 import { selectAllProducts } from "../../store/slices/product.slice";
 import { ToastContainer } from "react-toastify";
 import Slide from "react-reveal/Slide"
-import { filterBrand, removeBrand,sortAsc,sortDes } from "../../store/slices/filter.slice";
+import {reset,filterBrand, removeBrand,sortAsc,sortDes,loadData,sortAz,sortZa } from "../../store/slices/filter.slice";
 import Search from "./Search";
-import { selecfilterBrand,selectBrand,selectfilterSize ,selectMultipleFilter,selectSize,selectSearch,selectString} from "../../store/slices/filter.slice";
+import {selectSort,selecfilterBrand,selectBrand,selectfilterSize ,selectMultipleFilter,selectSize,selectSearch,selectString} from "../../store/slices/filter.slice";
+import { useLocation } from "react-router-dom";
 
 const Sneaker = () =>{
   const listBrand = useSelector(selectBrand)
@@ -19,7 +21,15 @@ const Sneaker = () =>{
   const filter = useSelector(selectMultipleFilter)
   const listSize = useSelector(selectSize)
   const listProductBySearch = useSelector(selectSearch)
+  const sort = useSelector(selectSort)
   const search = useSelector(selectString)
+
+  // reset state
+  const {location} = useLocation()
+  useEffect(()=>{
+    dispatch(reset())
+  },[location])
+
   let brandList = []
   if(products){
     products.forEach(e => {
@@ -47,8 +57,6 @@ const Sneaker = () =>{
   }
 
 
-
-
   // Lọc data
   const  data = () => {
     if(search){
@@ -61,7 +69,25 @@ const Sneaker = () =>{
       return filter
     }
   };
-
+  const result = data() 
+ 
+  const items = [...products]
+  const [value,setValue] = useState(null)
+  const handleSort = (e) => {
+    setValue(e.target.value)
+      if(e.target.value == 1 ){
+        dispatch(sortAsc(items))
+      }else if(e.target.value == 2){
+        dispatch(sortDes(items))
+      }else if(e.target.value == 3){
+        dispatch(sortAz(items))
+      }else if(e.target.value == 4) {
+        dispatch(sortZa(items))
+      }else{
+        dispatch(loadData(items))
+      }
+    }
+    const final = sort.length > 0 ? sort : products
   return(
         <div id="list-product">
         <div className="container-fuild">
@@ -81,7 +107,7 @@ const Sneaker = () =>{
               data().length == 0 && (listSize.length >0 || listBrand.length >0) ? 
               <h1>Không có sản phẩm nào hiển thị</h1> 
               :<>
-             <ListProduct products={data().length>0? data() : products} />
+             <ListProduct products={(result.length>0? result : final)} handleSort={handleSort} value={value}/>
               <ToastContainer 
               position="bottom-right"
               autoClose={3000}
@@ -94,6 +120,7 @@ const Sneaker = () =>{
               pauseOnHover={false}
               style={{ fontSize: "1.5rem" }} 
             />
+            <Pagination/>
             </>
             }
           </div>

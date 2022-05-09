@@ -3,52 +3,54 @@
 const AboutUs = () =>{
 
   return( 
-    <div class="content-page">
-    <h1 class="text-center heading-page">Chào mừng đến với Hyy store</h1>
-    <div class="container">
-      <div class="row section-layout d-flex align-items-center">
-        <div class="col col-lg-6 col-md-12 col-sm-12 col-12">
-          <h1 class="heading-1">Thành lập từ 2002</h1>
-          <p class="text">
+    <div className="container">
+
+    <div className="content-page">
+    <h1 className="text-center heading-page">Chào mừng đến với Hyy store</h1>
+    <div className="container">
+      <div className="row section-layout d-flex align-items-center">
+        <div className="col col-lg-6 col-md-12 col-sm-12 col-12">
+          <h1 className="heading-1">Thành lập từ 2002</h1>
+          <p className="text">
             Hyy store được nhiều bạn trẻ biết đến là cửa hàng chuyên bán và order giày sneakers và phụ kiện. Sneaker Land cam kêt mang đến cho khách hàng các sản phẩm giày chính hãng, 100% authentic, US shipped. Rất nhiều khách hàng đã mua, trải nghiệm và đánh giá về nguồn gốc của hàng nên bạn không cần phải lo lắng chút nào khi mua giày tại đây. Điều đặc biệt khiến Hyy được nhiều người biết đến bởi tại đây cung cấp nhiều mẫu mã giày đa dạng kèm các loại phụ kiện phù hợp với cá tính riêng của từng khách hàng. Từ những mẫu giày basic đến những chiếc giày cá tính, phá cách, cửa hàng luôn update và đưa đến cho khách hàng những mẫu giày mới thường xuyên nên bạn có thể tìm được mẫu giày mới, ưng ý và chất lượng nhất tại đây.
           </p>
         </div>
-        <div class="col col-lg-6 col-md-12 col-sm-12 col-12">
+        <div className="col col-lg-6 col-md-12 col-sm-12 col-12">
           <img src="../image/store-1.jpg" alt="store"/>
         </div>
 
       </div>
-      <div class="row section-layout d-flex align-items-center">
-        <div class="col col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1 order-md-2 order-sm-2 order-2">
+      <div className="row section-layout d-flex align-items-center">
+        <div className="col col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1 order-md-2 order-sm-2 order-2">
           <img src="../image/store-2.jpg" alt="store"/>
         </div>
-        <div class="col col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2">
-          <h1 class="heading-1">Tại sao nên chọn  Hyy store</h1>
+        <div className="col col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2">
+          <h1 className="heading-1">Tại sao nên chọn  Hyy store</h1>
           <ul>
             <li>
-              <p class="text">Chúng tôi luôn có sẵn giày sneaker nam và nữ với nhiều kích cỡ, dễ dàng đáp ứng nhu cầu và thị hiếu khách hàng.</p>
+              <p className="text">Chúng tôi luôn có sẵn giày sneaker nam và nữ với nhiều kích cỡ, dễ dàng đáp ứng nhu cầu và thị hiếu khách hàng.</p>
             </li>
             <li>
-              <p class="text">Mẫu mã đa dạng, phong phú đến từ những thương hiệu giày nổi tiếng: Adidas, Nike, Converse, New Balance, Vans,…</p>
+              <p className="text">Mẫu mã đa dạng, phong phú đến từ những thương hiệu giày nổi tiếng: Adidas, Nike, Converse, New Balance, Vans,…</p>
             </li>
             <li>
-              <p class="text">Luôn cập nhật những mẫu giày xu hướng mới nhất.</p>
+              <p className="text">Luôn cập nhật những mẫu giày xu hướng mới nhất.</p>
             </li>
             <li>
-              <p class="text">Đa dạng tính năng: giày đi chơi, giày đi làm, giày chạy bộ, giày bóng rổ, giày tập gym,…</p>
+              <p className="text">Đa dạng tính năng: giày đi chơi, giày đi làm, giày chạy bộ, giày bóng rổ, giày tập gym,…</p>
             </li>
             <li>
-              <p class="text">Giao hàng nhanh chỉ 2 tiếng trong khu vực nội thành.</p>
+              <p className="text">Giao hàng nhanh chỉ 2 tiếng trong khu vực nội thành.</p>
             </li>
             <li>
-              <p class="text">Thoải mái kiểm tra, dễ dàng đổi trả, miễn phí ship và nhiều ưu đãi.</p>
+              <p className="text">Thoải mái kiểm tra, dễ dàng đổi trả, miễn phí ship và nhiều ưu đãi.</p>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col section-layout">
-        <h1 class="heading-1">Cảm hứng với Hyy store</h1>
-        <p class="text">
+      <div className="col section-layout">
+        <h1 className="heading-1">Cảm hứng với Hyy store</h1>
+        <p className="text">
           <strong>
             ‘Tôi dành phần lớn thời gian của mình khoác lên những thứ bất tiện, vì vậy tôi chỉ nghĩ đến những đôi giầy thể thao.’ – Cara Delevingne 
           </strong>
@@ -58,6 +60,7 @@ const AboutUs = () =>{
       </div>
     </div>
   </div>
+    </div>
   )
 }
 

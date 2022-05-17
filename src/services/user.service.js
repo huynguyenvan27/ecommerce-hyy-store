@@ -5,17 +5,29 @@ const userApi = createApi({
     reducerPath: "userApi",
     baseQuery: userBaseQuery,
     endpoints: (builder) => ({
-        signin: builder.mutation({
-            query: (user) => {
+        login : builder.mutation({
+            query : (user) => {
                 return {
-                    url: "signin",
-                    method: "POST",
-                    body: user,
-                };
-            },
+                    url : "login",
+                    method : "POST",
+                    body : user,
+                }
+            }
+        }),       
+        register : builder.mutation({
+            query : (user) => {
+                return {
+                    url : "register",
+                    method : "POST",
+                    body : user,
+                }
+            }
         }),
+        getUser: builder.query({
+            query: () => `me`,
+          }),
     }),
 });
 
 export default userApi;
-export const { useSigninMutation } = userApi;
+export const {useLoginMutation,useRegisterMutation,useGetUserQuery} = userApi;

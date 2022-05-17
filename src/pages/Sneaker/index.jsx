@@ -11,7 +11,6 @@ import {reset,filterBrand, removeBrand,sortAsc,sortDes,loadData,sortAz,sortZa } 
 import Search from "./Search";
 import {selectSort,selecfilterBrand,selectBrand,selectfilterSize ,selectMultipleFilter,selectSize,selectSearch,selectString} from "../../store/slices/filter.slice";
 import { useLocation } from "react-router-dom";
-
 const Sneaker = () =>{
   const listBrand = useSelector(selectBrand)
   const dispatch = useDispatch()
@@ -54,6 +53,7 @@ const Sneaker = () =>{
       dispatch(removeBrand(e.target.name)) 
       setBrand({...brand,[e.target.name] : false})
     }
+    setCurrentPage(1)
   }
 
 
@@ -72,6 +72,7 @@ const Sneaker = () =>{
   const result = data() 
  
   const items = [...products]
+  
   const [value,setValue] = useState(null)
   const handleSort = (e) => {
     setValue(e.target.value)
@@ -87,27 +88,49 @@ const Sneaker = () =>{
         dispatch(loadData(items))
       }
     }
-    const final = sort.length > 0 ? sort : products
+    const final = sort.length > 0 ? [...sort] : [...products]
+    const dataFilter = result.length>0? [...result] : [...final]
+
+    const [currentPage,setCurrentPage] = useState(1)
+    const [productsPerPage,setProductsPerPage] = useState(9)
+    // const []
+    const indexOfLastProducts = currentPage*productsPerPage;
+    const indexOfFirstProducts = indexOfLastProducts - productsPerPage;
+    const currentProducts = dataFilter.slice(indexOfFirstProducts,indexOfLastProducts)
+    const totalProducts = dataFilter.length
+    const handleSetCurrentPagePage = (e) => {
+      setCurrentPage(e)
+    }
+    const handleNext = () =>{
+      setCurrentPage(currentPage+1)
+    }
+    const handlePrev = () => {
+      setCurrentPage(currentPage-1)
+    }
+
+    const [collapse,setCollapse] = useState(false)
+
+
+
   return(
         <div id="list-product">
         <div className="container-fuild">
           <div className="row"> 
-          <button class="btn side-filter">BỘ LỌC SẢN PHẨM</button>
-          <div className="col col-lg-3 col-md-12 col-sm-12 col-12" id="filter-product">
-            <Slide
-              left
-              Cascade = {true}
-              >
-              <Search/>
-              <Category list = {brandList} brand={brand} handleFilterBrand={handleFilterBrand} />
-            </Slide>
+          <div className="col filter-collapse">
+            <button class="btn side-filter" onClick={()=>setCollapse(!collapse)}>BỘ LỌC SẢN PHẨM</button>
+          </div>
+          <div className={collapse ? "col col-lg-3 col-md-12 col-sm-12 col-12 panel-collapse" : "col col-lg-3 col-md-12 col-sm-12 col-12 panel-collapse panel-close"}>
+              <div id="filter-product">
+                <Search/>
+                <Category list = {brandList} brand={brand} handleFilterBrand={handleFilterBrand} />
+              </div>
           </div>
           <div class="col col-lg-9 col-md-12 col-sm-12 col-12">
             {
               data().length == 0 && (listSize.length >0 || listBrand.length >0) ? 
               <h1>Không có sản phẩm nào hiển thị</h1> 
               :<>
-             <ListProduct products={(result.length>0? result : final)} handleSort={handleSort} value={value}/>
+             <ListProduct products={currentProducts} handleSort={handleSort} value={value}/>
               <ToastContainer 
               position="bottom-right"
               autoClose={3000}
@@ -120,7 +143,14 @@ const Sneaker = () =>{
               pauseOnHover={false}
               style={{ fontSize: "1.5rem" }} 
             />
-            <Pagination/>
+            <Pagination 
+              totalProducts = {totalProducts} 
+              productsPerPage = {productsPerPage}
+              currentPage = {currentPage}
+              handleSetCurrentPagePage={handleSetCurrentPagePage}
+              handleNext = {handleNext}
+              handlePrev = {handlePrev}
+              />
             </>
             }
           </div>

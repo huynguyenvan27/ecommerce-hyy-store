@@ -6,28 +6,24 @@ import NewProduct from "./NewProduct";
 import DealHot from "./DealHot";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import News from "./News";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import { useSelector } from "react-redux";
 import { selectAllProducts } from "../../store/slices/product.slice";
 import { ToastContainer } from "react-toastify";
 import './home.css'
 const Home = () =>{
   const products = useSelector(selectAllProducts)
-
-  
-
+  // console.log(products);
+  const productsNew =  products.filter(item => item.isNew == true)
   const settings = {
     dots: true,
-    accessibility: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,      
     autoplay: true,
-    speed: 1000,
-    autoplaySpeed: 1000,
+    speed: 2000,
+    autoplaySpeed: 2000,
     fade : true,
-    cssEase: "linear", 
+    cssEase: "ease-out", 
     arrows:false,
     appendDots: dots => (
       <div
@@ -73,7 +69,7 @@ const Home = () =>{
     </div>
       <Policy />
       <Option />
-      <NewProduct data={products}/>
+      <NewProduct data={productsNew}/>
       <DealHot />
       <News/>
       <Newsletter/>

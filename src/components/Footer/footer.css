@@ -20,4 +20,7 @@ footer #logo{
 footer .store{
   margin-bottom: 20px;
 }
+.store-icon i {
+  margin-right: 8px;
+}
 

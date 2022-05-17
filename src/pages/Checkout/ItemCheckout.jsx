@@ -9,7 +9,7 @@ const ItemCheckout = ({product,quantity,size}) => {
     <label className="product-name">{product.name}</label>
     <label>Size:{size}</label>
     <label className="product-quantity mx-3">x{quantity}</label>
-    <label className="product-price color--red">{formatter.format(product.price)}đ</label>
+    <label className="product-price color--red">{formatter.format(product.price)} đ</label>
   </div>
   )
 }

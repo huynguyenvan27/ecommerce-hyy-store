@@ -1,6 +1,6 @@
 import ProductdtInfo from "./ProductdtInfo";
-// import { selectProductById } from "../../store/slices/product.slice";
 import { useDispatch} from "react-redux";
+import Fade from 'react-reveal/Fade';
 import { myContext  } from "../../App";
 import { ToastContainer, toast } from "react-toastify";
 import { useParams } from "react-router-dom";
@@ -42,9 +42,7 @@ const Productdt = () =>{
   }
 
   const handleAddToWishList = (id) =>{
-    if(size != null) {
       dispatch(addWishList(id))
-    }else{
       toast.success(`
       Đã thêm sản phẩm vào yêu thích`,{
       position: "top-center",
@@ -55,7 +53,6 @@ const Productdt = () =>{
       draggable: true,
       progress: undefined,
     });
-    }
   }
 
   const [nav1,setNav1] = useState ()
@@ -67,49 +64,51 @@ const Productdt = () =>{
   return (
     <div id="product-details">
       <div className="container">
-        <div className="row" id="product-details__inner">
-          <div className="col-lg-6 col-md-12">
-            <Slider 
-              asNavFor={nav2}
-              ref={c=>setNav1(c)
-              }
-              infinite= {true}
-            >
-              {data.imgLg.map(src=>{
-                return(
-                <div key={src}>
-                  <img src={src} alt="" />
-                </div>)
-              })}
-            </Slider>
-            <Slider 
-                   asNavFor={nav1}
-                   ref={c => setNav2(c)}
-                   slidesToShow={5}
-                   infinite= {false}
-                   slidesToScroll={1}
-                   swipeToSlide={true}
-                   focusOnSelect={true}
-                   arrows={false}
-                   centerMode = {true}
-                   centerPadding= {true}
-            >
-              {data.imgDetail.map(src=>{
-                return(
-                <div key={src}>
-                  <img src={src} alt="" />
-                </div>)
-              })}
-            </Slider>
+        <Fade>
+          <div className="row" id="product-details__inner">
+            <div className="col-lg-6 col-md-12">
+                <Slider 
+                  asNavFor={nav2}
+                  ref={c=>setNav1(c)
+                  }
+                  infinite= {true}
+                  >
+                  {data.imgLg.map(src=>{
+                    return(
+                      <div key={src}>
+                      <img src={src} alt="" />
+                    </div>)
+                  })}
+                </Slider>
+              <Slider 
+                    asNavFor={nav1}
+                    ref={c => setNav2(c)}
+                    slidesToShow={5}
+                    infinite= {false}
+                    slidesToScroll={1}
+                    swipeToSlide={true}
+                    focusOnSelect={true}
+                    arrows={false}
+                    centerMode = {true}
+                    centerPadding= {true}
+                    >
+                {data.imgDetail.map(src=>{
+                  return(
+                    <div key={src}>
+                    <img src={src} alt="" />
+                  </div>)
+                })}
+              </Slider>
+            </div>
+            <div className="col-lg-6 col-md-12">
+                <ProductdtInfo  
+                  product={data}
+                  handleAddToCart = {handleAddToCart}
+                  handleWishList = {handleAddToWishList}
+                  />
+            </div>
           </div>
-          <div className="col-lg-6 col-md-12">
-            <ProductdtInfo  
-              product={data}
-              handleAddToCart = {handleAddToCart}
-              handleWishList = {handleAddToWishList}
-            />
-          </div>
-        </div>
+        </Fade>
       </div>
       <ToastContainer style={{fontSize : "1.6rem"}}/>
     </div>

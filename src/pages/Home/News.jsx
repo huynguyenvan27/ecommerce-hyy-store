@@ -9,7 +9,7 @@ const News = () =>{
         </h1>
         <div className="row">
           <div className="col-lg-3 col-md-4 col-sm-6 col-12 col">
-            <Link to="/blog" className="news-block">
+            <Link to="/blog-detail" className="news-block">
               <div className="news-img">
                 <img
                   src="/image/air-jordan-4-bred-black-cement.webp"
@@ -25,7 +25,7 @@ const News = () =>{
             </Link>
           </div>
           <div className="col-lg-3 col-md-4 col-sm-6 col-12 col">
-            <Link to="/blog" className="news-block">
+            <Link to="/blog-detail" className="news-block">
               <div className="news-img">
                 <img
                   src="/image/591900337269_884858151688470528_o_6388fa8b24f240ceb4ea400884087c2e_57e246a8d7244d5f807907d44b21f0d1_grande.webp"
@@ -41,7 +41,7 @@ const News = () =>{
             </Link>
           </div>
           <div className="col-lg-3 col-md-4 col-sm-6 col-12 col">
-            <Link to="/blog" className="news-block">
+            <Link to="/blog-detail" className="news-block">
               <div className="news-img">
                 <img
                   src="/image/fragment-travis-scott-air-jordan-1-retro-high-dh3227-105-6-1_c66fd2c99eea4e6a9b7f986fe2418363_grande.webp"
@@ -57,7 +57,7 @@ const News = () =>{
             </Link>
           </div>
           <div className="col-lg-3 col-md-4 col-sm-6 col-12 col">
-            <Link to="/blog" className="news-block">
+            <Link to="/blog-detail" className="news-block">
               <div className="news-img">
                 <img src="/image/slideshow_1_2d0ac4870c4843b1b65f5e4d163050c9_grande.webp" alt="blog"/>
               </div>

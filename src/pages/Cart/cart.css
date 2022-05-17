@@ -45,6 +45,7 @@ td{
 }
 tr>td{
   padding-left: 10px ;
+  padding-right :10px;
 }
 tr>th{
   padding-left: 10px;
@@ -64,9 +65,20 @@ th{
 #code-input{
   padding: 7px 5px;
   font-size: 1.6rem;
-  width: 60%;
-
+  height: 40px;
 }
 #code-input:focus{
   outline: none;
+}
+.bill-block{
+  padding: 30px;
+  font-size: 1.8rem;
+  background-color: #f3f3f3;
+  margin-top: 30px;
+}
+.check-code{
+  margin-top:30px;
+}
+.check-code .btn--primary{
+  height: 40px;
 }

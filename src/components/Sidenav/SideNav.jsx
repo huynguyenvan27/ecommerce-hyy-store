@@ -18,9 +18,15 @@ const SideNav = ({state,btnToogle}) =>{
         <div className={state ? 'sidenav open' : 'sidenav'} id="mini-cart">
         <button className="closebtn btn" onClick={btnToogle}>&times;</button>
         <div className="mini-cart__inner">
-            { cart.length == 0 ? <h1>Hiện tại không có sản phẩm nào trong giỏ hàng</h1> :
-              <>
-                      <div classname="heading-cart text-center mb-4">
+            { cart.length == 0 ?
+            <div className="d-flex flex-column justify-content-center align-items-center">
+              <img src="/image/empty_cart-512.webp" className="empty-cart"/>
+              <h3 className="mt-4">Giỏ hàng trống !</h3>
+              <button className="btn--primary mt-5" onClick={btnToogle}>Quay lại mua hàng</button>
+            </div>
+
+            :<>
+                  <div classname="heading-cart text-center mb-4">
                         <h4 classname="text-center">Sản phẩm trong giỏ hàng:{totalNumber}</h4>
                       </div>
                       <div classname="d-flex flex-column mini-cart__item">

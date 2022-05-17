@@ -1,4 +1,7 @@
-
+#bill-checkout{
+  background-color: #f3f3f3;
+  padding: 0 20px;
+}
 #code-input{
   padding: 7px 5px;
   font-size: 1.6rem;
@@ -75,6 +78,9 @@ input:checked + .btn-option-pay {
 .input-code{
   font-size: 1.6rem;
   padding: 5px 10px;
+}
+.heading-1.line-seperate{
+  margin-top: 30px;
 }
 
 

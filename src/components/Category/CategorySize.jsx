@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useSelector,useDispatch } from "react-redux";
-import SizeList from "../../pages/Productdt/SizeList";
+import { useDispatch } from "react-redux";
 import { filterSize,removeSize} from "../../store/slices/filter.slice";
 const CategorySize = () => {
   const dispatch = useDispatch()

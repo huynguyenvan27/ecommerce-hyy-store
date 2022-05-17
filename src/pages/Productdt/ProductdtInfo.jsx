@@ -1,10 +1,9 @@
 
 import SizeList from './SizeList'
-import StarRatings from "react-star-ratings/build/star-ratings"
 import { FaFacebookF,FaTwitter,FaYoutube,FaInstagram } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
-const ProductdtInfo = ({product,handleAddToCart,handleWishList,handleSize}) => {
+const ProductdtInfo = ({product,handleAddToCart,handleWishList}) => {
   
   let formatter = new Intl.NumberFormat("en-US", {
     currency: "VND",
@@ -45,7 +44,6 @@ const ProductdtInfo = ({product,handleAddToCart,handleWishList,handleSize}) => {
         <button className="btn btn-light favourite btn-outline-danger" onClick={()=>handleWishList(product.id)}>
           <i className="bi bi-heart"></i>
           <span className="like">Thêm vào yêu thích</span>
-          <span className="liked">Đã thêm vào yêu thích</span>
         </button>
       </div>
       <div className="sneaker-size-guide mt-5">

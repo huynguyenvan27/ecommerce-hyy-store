@@ -15,10 +15,9 @@ const WishList = () => {
     return (
         <div id="cart">
         <div className="container">
-          <div className="mt-5">
-            <h1 className="heading-1 text-center">Sản phẩm yêu thích</h1>
-          </div>
+          <h1 className="heading-1 text-center">Sản phẩm yêu thích</h1>
           <div>
+            {list.length == 0 ? "" :
           <table style={{width:"100%"}}>
           <thead>
                 <tr>
@@ -59,6 +58,7 @@ const WishList = () => {
                 })}
             </tbody>
           </table>
+          }
             <div className="d-flex justify-content-center mt-5">
               <Link to = "/sneaker" className="btn--primary ms-3" id="btn-checkout"> Quay lại mua hàng</Link>
             </div>

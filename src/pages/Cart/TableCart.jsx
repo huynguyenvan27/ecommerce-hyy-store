@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import QtyBtn from "../../components/QtyBtn/QtyBtn";
 import { useSelector ,useDispatch } from "react-redux";
-import { selectTotalBill , selectAllCartItems, remove ,increase,decrease } from "../../store/slices/cart.slice"
+import { selectTotalBill, selectNumberSale , selectAllCartItems, remove ,increase,decrease,addSale } from "../../store/slices/cart.slice"
 import './cart.css'
+import { NumberSchema } from "yup";
 const TableCart = () => {
     const dispatch = useDispatch();
 
     const cart = useSelector(selectAllCartItems)
-
+    const numberSale = useSelector(selectNumberSale)
     const totalBill = useSelector(selectTotalBill)
-    // console.log(cart);
-
     let formatter = new Intl.NumberFormat("en-US", {
         currency: "VND",
       });
@@ -20,15 +20,40 @@ const TableCart = () => {
     };
 
     const handleRemove = (id) =>{
+        alert("Bạn có muốn xóa sản phẩm?")
       dispatch(remove(id))
     }
     
     const handleDecrease = ({id:id,size:size}) => {
       dispatch(decrease({id:id,size:size}));
     };
+
+    const [code,setCode] = useState(0)
+    const handleCode = (e) => {
+      setCode(e.target.value)
+    }
+
+    const handleSubmitCode = () =>{
+        if(code == 'HELLO'){
+            dispatch(addSale(0.05))
+            alert("Áp dụng mã thành công")
+            return
+        }
+        dispatch(addSale(0))
+    }
+
+
     return (
         <>
-        {cart.length==0 ? <h2 className="text-center">Không có sản phẩm nào trong giỏ hàng</h2> :
+        {cart.length==0 ? 
+        <div className="d-flex justify-content-center flex-column">  
+        <div className="d-flex justify-content-center">
+            <img src="/image/empty_cart-512.webp" className="empty-cart"/>
+        </div>
+            <h4 className="text-center mt-4">Không có sản phẩm nào trong giỏ hàng !!!</h4> 
+        </div>
+        :
+        <>
         <table id="cart-bill" style={{width:"100%"}}>
             <thead>
                 <tr>
@@ -66,7 +91,7 @@ const TableCart = () => {
                             />
                         </td>
                         <td data="Tạm tính:">
-                            <label className="product-price color--red">{formatter.format(item.quantity*item.product.price)}đ</label>
+                            <label className="product-price color--red">{formatter.format(item.quantity*item.product.price)} đ</label>
                         </td>
                         <td>
                             <button className="btn-remove btn" onClick={()=>handleRemove(item.product.id)}><i className="bi bi-trash"></i></button>
@@ -74,19 +99,25 @@ const TableCart = () => {
                     </tr>)
                 })}
             </tbody>
-            <tfoot>
-                <tr>
-                    <td className="d-flex align-items-center">
-                        <input type="text" id="code-input" placeholder="Mã giảm giá:" />
-                        <input type="submit" className="btn--primary" value="ÁP DỤNG" />
-                    </td>
-                    <th colSpan="100%" className="text-center">
-                        <label className="">Tổng cộng:</label>
-                        <label className="total-value color--red">{formatter.format(totalBill)}</label>
-                    </th>
-                </tr>
-            </tfoot>
-        </table>}
+        </table>
+        <div className="row">
+        <div className="col-lg-8 col-sm-6">
+            <div className="check-code d-flex align-items-center">
+                <input type="text" id="code-input" placeholder="Mã giảm giá:" onChange={(e) => handleCode(e)}/>
+                <input type="submit" className="btn--primary" value="ÁP DỤNG" onClick={handleSubmitCode}/>
+            </div>
+        </div>
+        <div className="col-lg-4 col-sm-6">
+            <div className="bill-block">
+                <p className="d-flex justify-content-between text">Tạm tính : <span className="color--red">{formatter.format(totalBill)} đ</span></p>
+                <p className="d-flex justify-content-between text">Sale :  <span className="color--red">- {formatter.format(totalBill*numberSale)} đ</span></p>
+                <p className="d-flex justify-content-between text">Tổng cộng : <span className="color--red">{formatter.format(totalBill-totalBill*numberSale)} đ</span></p>
+            </div>
+        </div>
+        </div>
+        </>
+        }
+
         </>
     )
 }

@@ -67,8 +67,7 @@ const listProductSlice =  createSlice({
           ...state,
           data: sortNameDes
       }
-    },
-   
+    } 
   }
 
 })
@@ -93,6 +92,7 @@ export const selectMultipleFilter = (state) =>
   state.products.filter((p) => state.listProduct.brand.includes(p.brand.toLowerCase()))
   .filter((item) =>
       item.list_size.some(z=>state.listProduct.size.includes(z)))
+
 
 export const selectSort = (state) => state.listProduct.data
 

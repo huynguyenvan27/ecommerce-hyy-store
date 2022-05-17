@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import './card.css'
-import React, { useState,useContext,useCallback } from "react";
+import React, { useState,useContext } from "react";
 import {  addOption,addWishList,review } from "../../store/slices/cart.slice";
 import { useDispatch } from "react-redux";
 import 'react-toastify/dist/ReactToastify.css';

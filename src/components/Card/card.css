@@ -7,6 +7,9 @@
   position: relative;
   transition: all 0.5s linear;
 }
+.quick-action button:hover >i{
+  color: var(--white-color);
+}
 .quick-action button i{
   font-size: 2rem;
 }

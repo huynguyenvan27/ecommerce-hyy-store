@@ -37,7 +37,6 @@ const Footer = (props) =>{
             <h1>THÔNG TIN</h1>
             <Link to="/">Trang chủ</Link>
             <Link to="/sneaker">Sneaker</Link>
-            <Link to="/accessory">Phụ kiện</Link>
             <Link to="/blog">Tin tức</Link>
             <Link to="about-us">Giới thiệu</Link>
             <Link to="/contact">Liên hệ</Link>

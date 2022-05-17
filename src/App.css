@@ -14,7 +14,10 @@ a{
   display: inline-block;
   font-family: inherit;
 }
-a:hover{
+a.product-name:hover{
+  color: #0d6efd !important
+}
+.name-tag:hover{
   color: #0d6efd !important;
 }
 .color--red{
@@ -201,6 +204,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .price-old{
   font-size: 1.4rem;
   text-decoration: line-through;
+  margin-left: 5px;
 }
 
 #filter-product.block{
@@ -219,17 +223,23 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 2rem;
 }
 
+.panel-collapse {
+  max-height: 1200px;
+  display: block;
+  overflow: hidden;
+  transition: max-height .5s ease;
+}
 
 /* responsive web */
 @media only screen and (min-width: 1200px){
   /* name-colections */
-    .side-filter.btn  {
+    .filter-collapse  {
       display: none !important;
     }
   }
   
   @media only screen and (max-width: 1200px){
-    .side-filter.btn{
+    .filter-collapse{
       display: none !important;
     }
     .banner-title h1{
@@ -248,6 +258,9 @@ input[type="number"]::-webkit-outer-spin-button {
     }
     .heading-1.line-seperate{
       margin-bottom: 20px;
+    }
+    .panel-close {
+      max-height: 0;
     }
   /* header */
   
@@ -309,13 +322,18 @@ input[type="number"]::-webkit-outer-spin-button {
   
     
     #filter-product{
-      max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s linear;
+      /* transition: max-height 0.3s linear; */
       background-color: #f1f1f1;
+      padding: 8px;
+      border-radius: 3px;
     }
-  
-    .side-filter.btn{
+
+    .btn-cart-list{
+      display: none;
+    }
+    
+    .filter-collapse{
       display: block !important;
     }
 

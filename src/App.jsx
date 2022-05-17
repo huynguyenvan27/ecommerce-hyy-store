@@ -5,7 +5,6 @@ import Layout from './components/Layout'
 import Layout1 from './components/Layout1'
 import Home from './pages/Home'
 import Sneaker from './pages/Sneaker'
-import Accessory from './pages/Accessory'
 import Contact from './pages/Contact'
 import AboutUs from './pages/AboutUs'
 import Productdt from './pages/Productdt/Productdt'
@@ -16,6 +15,9 @@ import WishList from './pages/WishList/WishList'
 import { useGetAllProductsQuery } from './services/product.service'
 import { createContext , useState } from 'react'
 import Loading from './components/Loading/Loading'
+import User from './pages/User/User'
+import Private  from './components/Private'
+import BlogDetail from './pages/Blog-detail/BlogDetail'
 import './App.css'
 const myContext = createContext();
 export {myContext} 
@@ -38,9 +40,19 @@ function App() {
           <Route index element = {<Home />}/>
           <Route path='/' element = {<Layout />}>
             <Route path='/sneaker' element = {<Sneaker />}/>
-            <Route path='/accessory' element = {<Accessory />}/>
             <Route path='/sneaker/:id' element = {<Productdt />}/>
             <Route path='/cart' element={<Cart />}/>  
+            {/* <Route
+                  path="/users"
+                  element={
+                      <Private>
+                          <User />
+                      </Private>
+                  }
+            /> */}
+            <Route path="/users" element= {<User />}/>
+
+            <Route path='/blog-detail' element={<BlogDetail/>}/>
             <Route path='/blog' element = {<Blog />}/>
             <Route path='/about-us' element = {<AboutUs />}/>
             <Route path='/contact' element = {<Contact/>}/>

@@ -31,12 +31,12 @@
   text-transform: uppercase;
   color: var(--black-color);
 }
-.header-icon>a{
-  margin:0 5px;
+.header-icon button{
+  margin:0 2px;
   transform: translateY(0px);
   transition: all 0.2s linear;
 }
-.header-icon>a:hover{
+.header-icon button:hover{
   transform: translateY(-2px);
 }
 

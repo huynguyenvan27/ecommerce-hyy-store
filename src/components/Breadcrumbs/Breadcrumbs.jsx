@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { selectAllProducts } from '../../store/slices/product.slice';
 import { useSelector } from 'react-redux';
 import './Breadcrumbs.css' 
-import { useEffect } from 'react';
 
 
 const Seperate = () => {
@@ -20,6 +19,7 @@ const Seperate = () => {
       { path: '/accessory', breadcrumb: 'Phụ kiện' },
       { path: '/sneaker', breadcrumb: 'Sneaker' },
       { path: '/blog', breadcrumb: 'Tin tức' },
+      { path: '/blog-detail', breadcrumb: 'Tin tức' },
       { path: '/about-us', breadcrumb: 'Chúng tôi' },
       { path: '/contact', breadcrumb: 'Liên hệ' },
       { path: '/checkout', breadcrumb: 'Thanh toán' },

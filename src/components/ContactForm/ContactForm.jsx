@@ -10,8 +10,9 @@ const ContactForm = () => {
             initialValues={{ name: '', email: '', address: '', phone: '',message: '' }}
             onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
+                    // alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
+                    window.open(`mailto:test@example.com?subject=Liênhệ&body=${JSON.stringify(values)}`);
                 }, 1000);
             }}
             validationSchema={Yup.object({

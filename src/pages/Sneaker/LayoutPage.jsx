@@ -1,6 +1,3 @@
-import { useDispatch } from "react-redux"
-import { sortAsc, sortDes } from "../../store/slices/filter.slice"
-import { useState } from "react"
 
 
 const sortList = [
@@ -21,9 +18,6 @@ const sortList = [
     lable:"Tên: Z-A",
   },
 ]
-
-
-
 
 
 const LayoutPage = ({value,handleSort}) => {

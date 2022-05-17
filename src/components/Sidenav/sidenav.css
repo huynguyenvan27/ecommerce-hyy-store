@@ -9,6 +9,7 @@
     padding: 5px 15px 15px;
     overflow: auto;
     margin-right: -400px;
+    
   }
 
 
@@ -53,4 +54,8 @@
   .mini-cart__router a {
     font-size: 1.4rem;
     font-weight: 300;
+  }
+  .empty-cart{
+    /* filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%); */
+    max-width: 100px;
   }

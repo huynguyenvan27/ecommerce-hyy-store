@@ -6,6 +6,8 @@ import Overlay from "../Overlay/Overlay"
 import NavMobi from "../NavMobi/NavMobi"
 import FormLogin from "../FromLogin/FormLogin"
 import './header.css'
+import { useSelector } from "react-redux"
+import { selectUser } from "../../store/slices/user.slice"
 const Header = () => {
   const {open} = useContext(myContext);
   const {setOpen} = useContext(myContext);
@@ -53,6 +55,9 @@ const Header = () => {
 
   },[lastScrollY])
 
+
+  const user = useSelector(selectUser)
+
   return(
     <>
     <div id="header" className={hide? "header hide" : "header show"  }>
@@ -70,7 +75,6 @@ const Header = () => {
           <nav className="header-nav">
             <NavLink to="/" className="underline-css active-page">Trang chủ</NavLink>
             <NavLink to="/sneaker" className="underline-css">Sneaker</NavLink>
-            <NavLink to="/accessory" className="underline-css">Phụ kiện</NavLink>
             <NavLink to="/blog" className="underline-css">Tin tức</NavLink>
             <NavLink to="/about-us" className="underline-css">Giới thiệu</NavLink>
             <NavLink to="/contact" className="underline-css">Liên hệ</NavLink>
@@ -79,14 +83,21 @@ const Header = () => {
             <button className="btn">
               <img src="/image/search.svg" alt=""/>
             </button>
+            <Link to="/wishlist">
             <button className="btn">
-              <Link to="/wishlist">
                 <img src="/image/heart.svg" alt=""/>
-              </Link>
             </button>
-            <button className="btn" id="userLogin" onClick={handleModal}>
-              <img src="/image/user.svg" alt=""/>
-            </button>
+            </Link>
+            {localStorage.getItem("token")? 
+              <Link to = "/users">
+                <button className="btn" id="userLogin" >
+                  <img src="/image/user.svg" alt=""/>
+                </button>
+              </Link> :
+              <button className="btn" id="userLogin" onClick={handleModal}>
+                <img src="/image/user.svg" alt=""/>
+              </button>
+            }
             <button className="btn" onClick={btnToogle}>
               <img src="/image/bag.svg" alt=""/>
             </button>

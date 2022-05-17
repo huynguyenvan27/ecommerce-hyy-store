@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
     name : "cart",
-    initialState : {onCart:[],wishList:[],view:[]},
+    initialState : {onCart:[],wishList:[],view:[],numberSale : 0},
     reducers : {
         addWishList : (state,{payload}) =>{
             const item = state.wishList.find(item => item.productId == payload) ;
@@ -50,13 +50,16 @@ const cartSlice = createSlice({
         },
         clear: (state) =>{
             return []
+        },
+        addSale : (state,{payload}) => {
+            state.numberSale = payload
         }
     }
 })
 
 
 export default cartSlice.reducer;
-export const {remove,decrease,increase,addOption,addWishList,review, removeWishList} = cartSlice.actions;
+export const {remove,decrease,increase,addOption,addWishList,review, removeWishList,addSale} = cartSlice.actions;
 
 
 export const selectCount = (state) =>
@@ -69,20 +72,20 @@ export const selectAllCartItems = (state) =>
         product: state.products.find((p) => p.id == item.productId),
     }));
 
-
-export const selectTotalBill = (state) =>
+export const selectTotalBill = (state) =>     
     state.cart.onCart
-        .map((item) => ({
-            quantity: item.quantity,
-            size : item.size,
-            product: state.products.find((p) => p.id == item.productId),
-        }))
-        .reduce(
-            (total, item) => (total += (item.quantity * item.product.price)),
-            0
-        );
+    .map((item) => ({
+        quantity: item.quantity,
+        size : item.size,
+        product: state.products.find((p) => p.id == item.productId),
+    }))
+    .reduce(
+        (total, item) => ((total += (item.quantity * item.product.price))),
+        0
+    ) 
 
 export const selectAddWishList = (state) => state.cart.wishList.map(item=>(state.products.find((p) => p.id == item.productId)
 ))
 
 export const selectView = (state) => state.products.filter(item => item.id == state.cart.view )
+export const selectNumberSale = state => state.cart.numberSale

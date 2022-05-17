@@ -13,7 +13,6 @@ const NavMobi = ({menu,btnToogleMenu,handleModal}) => {
       </div>
       <Link to="/" className="nav-mobile__link" onClick={btnToogleMenu}>Trang chủ</Link>
       <Link to="/sneaker" className="nav-mobile__link" onClick={btnToogleMenu}>Sneaker </Link>
-      <Link to="/accessory" className="nav-mobile__link" onClick={btnToogleMenu}>Phụ kiện </Link>
       <Link to="/blog" className="nav-mobile__link" onClick={btnToogleMenu}>Tin tức </Link>
       <Link to="/about-us" className="nav-mobile__link" onClick={btnToogleMenu}>Giới thiệu </Link>
       <Link to="/contact" className="nav-mobile__link" onClick={btnToogleMenu}>Liên hệ </Link>

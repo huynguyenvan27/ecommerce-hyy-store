@@ -6,17 +6,17 @@ import productSlice from "./slices/product.slice";
 import listProductSlice from "./slices/filter.slice"
 import userApi from "../services/user.service";
 import userReducer from "./slices/user.slice";
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage' 
+// import { persistStore, persistReducer } from 'redux-persist'
+// import storage from 'redux-persist/lib/storage' 
 
 
 
  
-const persistConfig = {
-    key: 'root',
-    storage,
-    whitelist : ['cart']
-  }
+// const persistConfig = {
+//     key: 'root',
+//     storage,
+//     whitelist : ['listProduct']
+//   }
 
 //  const loadState = () => {
 //     try {
@@ -39,17 +39,17 @@ const persistConfig = {
 
 // const persistedState = loadState();
 
-const reducer = combineReducers({
-    cart : cartSlice,
-    products: productSlice,
-    listProduct : listProductSlice,
-    user: userReducer,
-})
+// const reducer = combineReducers({
+//     cart : cartSlice,
+//     products: productSlice,
+//     listProduct : listProductSlice,
+//     user: userReducer,
+// })
 
-const persistedReducer = persistReducer(persistConfig,reducer)
+// const persistedReducer = persistReducer(persistConfig,reducer)
 const store = configureStore ({
     reducer:{
-      reducer :  persistedReducer,
+    //   reducer :  persistedReducer,
       cart : cartSlice,
       products: productSlice,
       listProduct : listProductSlice,
@@ -67,7 +67,7 @@ const store = configureStore ({
     ])
    })  
 
-export const  persistor = persistStore(store)
+// export const  persistor = persistStore(store)
 
 // Thực hiện SubScribe khi state thay đổi
 // store.subscribe(() => {

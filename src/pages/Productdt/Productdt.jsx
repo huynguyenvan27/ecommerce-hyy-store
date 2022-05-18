@@ -72,6 +72,7 @@ const Productdt = () =>{
                   ref={c=>setNav1(c)
                   }
                   infinite= {true}
+                  arrows={false}
                   >
                   {data.imgLg.map(src=>{
                     return(

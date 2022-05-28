@@ -5,8 +5,7 @@ import './checkout.css'
 import ItemCheckout from './ItemCheckout';
 import { useSelector } from 'react-redux';
 import { selectAllCartItems,selectNumberSale,selectTotalBill } from '../../store/slices/cart.slice';
-
-
+import FormCheckout from './FormCheckout';
 
 const Checkout = () => {
   const cart = useSelector(selectAllCartItems)
@@ -23,7 +22,7 @@ const Checkout = () => {
         <div className="row">
           <div className="col col-lg-6 col-12 mt-5">
             <h1 className="heading-1 line-seperate">Thông tin khách hàng</h1>
-            <ContactForm />
+            <FormCheckout/>
           </div>
           <div className="col col-lg-6 col-12 mt-5" id='bill-checkout'>
             <h1 className="heading-1 line-seperate">Thông tin đơn hàng</h1>

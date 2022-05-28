@@ -4,7 +4,6 @@ import Login from './Login';
 import Register from './Register';
 import './formlogin.css'
 
-
 const FormLogin = ({modal,handleModal}) => {
   const [func,setFunc] = useState(false)
   const handleSetFunc = () => {

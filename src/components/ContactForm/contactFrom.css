@@ -6,8 +6,12 @@
   font-size: 1.3rem !important;
 }
 .form-control{
-  font-size: 1.7rem !important;
+  font-size: 1.6rem !important;
 }
 .form-label{
   font-size: 1.6rem;
+}
+.form-select{
+  font-size: 1.6rem !important;
+  margin-top: 20px;
 }

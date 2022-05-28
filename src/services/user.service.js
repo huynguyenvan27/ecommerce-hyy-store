@@ -14,7 +14,7 @@ const userApi = createApi({
                 }
             }
         }),       
-        register : builder.mutation({
+        logup : builder.mutation({
             query : (user) => {
                 return {
                     url : "register",
@@ -30,4 +30,4 @@ const userApi = createApi({
 });
 
 export default userApi;
-export const {useLoginMutation,useRegisterMutation,useGetUserQuery} = userApi;
+export const {useLoginMutation,useLogupMutation,useGetUserQuery} = userApi;

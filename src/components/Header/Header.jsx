@@ -9,6 +9,7 @@ import './header.css'
 import { useSelector } from "react-redux"
 import { selectUser } from "../../store/slices/user.slice"
 const Header = () => {
+
   const {open} = useContext(myContext);
   const {setOpen} = useContext(myContext);
   const btnToogle = useCallback(() =>{
@@ -20,6 +21,7 @@ const Header = () => {
     setMenu(!menu)
   }
 
+  const user = useSelector(selectUser)
   // handle FormLogin
 
   const [modal,setModal] = useState(false)
@@ -56,7 +58,6 @@ const Header = () => {
   },[lastScrollY])
 
 
-  const user = useSelector(selectUser)
 
   return(
     <>
@@ -88,7 +89,7 @@ const Header = () => {
                 <img src="/image/heart.svg" alt=""/>
             </button>
             </Link>
-            {localStorage.getItem("token")? 
+            {user? 
               <Link to = "/users">
                 <button className="btn" id="userLogin" >
                   <img src="/image/user.svg" alt=""/>

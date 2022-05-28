@@ -4,7 +4,8 @@ import QtyBtn from "../../components/QtyBtn/QtyBtn";
 import { useSelector ,useDispatch } from "react-redux";
 import { selectTotalBill, selectNumberSale , selectAllCartItems, remove ,increase,decrease,addSale } from "../../store/slices/cart.slice"
 import './cart.css'
-import { NumberSchema } from "yup";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 const TableCart = () => {
     const dispatch = useDispatch();
 
@@ -36,7 +37,15 @@ const TableCart = () => {
     const handleSubmitCode = () =>{
         if(code == 'HELLO'){
             dispatch(addSale(0.05))
-            alert("Áp dụng mã thành công")
+            toast.success(`Áp dụng mã thành công`,{
+                position: "top-center",
+                autoClose: 1000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             return
         }
         dispatch(addSale(0))
@@ -106,6 +115,7 @@ const TableCart = () => {
                 <input type="text" id="code-input" placeholder="Mã giảm giá:" onChange={(e) => handleCode(e)}/>
                 <input type="submit" className="btn--primary" value="ÁP DỤNG" onClick={handleSubmitCode}/>
             </div>
+            
         </div>
         <div className="col-lg-4 col-sm-6">
             <div className="bill-block">
@@ -113,6 +123,7 @@ const TableCart = () => {
                 <p className="d-flex justify-content-between text">Sale :  <span className="color--red">- {formatter.format(totalBill*numberSale)} đ</span></p>
                 <p className="d-flex justify-content-between text">Tổng cộng : <span className="color--red">{formatter.format(totalBill-totalBill*numberSale)} đ</span></p>
             </div>
+            <ToastContainer style={{fontSize : "1.6rem"}}/>
         </div>
         </div>
         </>

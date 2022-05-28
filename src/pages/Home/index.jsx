@@ -10,9 +10,12 @@ import { useSelector } from "react-redux";
 import { selectAllProducts } from "../../store/slices/product.slice";
 import { ToastContainer } from "react-toastify";
 import './home.css'
+import { useEffect } from "react";
 const Home = () =>{
+
   const products = useSelector(selectAllProducts)
-  // console.log(products);
+  console.log(products);
+
   const productsNew =  products.filter(item => item.isNew == true)
   const settings = {
     dots: true,

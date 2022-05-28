@@ -10,13 +10,10 @@ import {myContext } from '../../App';
 import { selectAllProducts } from "../../store/slices/product.slice";
 import { useSelector } from "react-redux";
 import { selectAddWishList , selectView} from "../../store/slices/cart.slice";
-
+import { formatter } from "../../../util";
 
 
 const Card = ({product}) =>{
-  let formatter = new Intl.NumberFormat("en-US", {
-    currency: "VND",
-  });
 
   const customStyles = {
     content: {

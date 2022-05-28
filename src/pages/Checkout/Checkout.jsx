@@ -6,12 +6,10 @@ import ItemCheckout from './ItemCheckout';
 import { useSelector } from 'react-redux';
 import { selectAllCartItems,selectNumberSale,selectTotalBill } from '../../store/slices/cart.slice';
 import FormCheckout from './FormCheckout';
+import { formatter } from '../../../util';
 
 const Checkout = () => {
   const cart = useSelector(selectAllCartItems)
-  let formatter = new Intl.NumberFormat("en-US", {
-    currency: "VND",
-  });
   const totalBill = useSelector(selectTotalBill)
   const numberSale = useSelector(selectNumberSale)
 

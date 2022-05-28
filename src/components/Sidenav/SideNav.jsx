@@ -3,7 +3,7 @@ import { useSelector ,useDispatch} from "react-redux";
 import { selectTotalBill,selectAllCartItems,selectCount,remove} from "../../store/slices/cart.slice";
 import SideNavItem from "./SideNavItem";
 import "./sidenav.css"
-
+import { formatter } from "../../../util";
 const SideNav = ({state,btnToogle}) =>{
 
   const cart = useSelector(selectAllCartItems)
@@ -11,9 +11,6 @@ const SideNav = ({state,btnToogle}) =>{
   const totalNumber = useSelector(selectCount)
   const dispatch = useDispatch()
   const handleRemove = (id) => {dispatch(remove(id))}
-  let formatter = new Intl.NumberFormat("en-US", {
-    currency: "VND",
-  });
     return (
         <div className={state ? 'sidenav open' : 'sidenav'} id="mini-cart">
         <button className="closebtn btn" onClick={btnToogle}>&times;</button>

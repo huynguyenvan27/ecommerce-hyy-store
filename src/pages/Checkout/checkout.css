@@ -18,6 +18,9 @@
   flex-basis:60% ;
 } 
 
+.form-group{
+  margin-bottom: 10px;
+}
 
 .contact-input>input,.contact-input>textarea{
   width: 100%;

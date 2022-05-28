@@ -2,13 +2,9 @@
 import SizeList from './SizeList'
 import { FaFacebookF,FaTwitter,FaYoutube,FaInstagram } from 'react-icons/fa';
 import { Link } from "react-router-dom";
-
+import { formatter } from '../../../util';
 const ProductdtInfo = ({product,handleAddToCart,handleWishList}) => {
   
-  let formatter = new Intl.NumberFormat("en-US", {
-    currency: "VND",
-  });
-
   return(
     <div className="sneaker-info ms-lg-5 mt-md-4 mt-2 d-flex flex-column">
       <div className="ranked-vote">
@@ -31,6 +27,7 @@ const ProductdtInfo = ({product,handleAddToCart,handleWishList}) => {
             <span className="price-current">{formatter.format(product.price)}đ</span>
           }
       </div>
+      <p className='text-16'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
       <div className="sneaker-size__list d-flex flex-wrap mt-5">
         <SizeList sizeList={product.list_size}/>
       </div>

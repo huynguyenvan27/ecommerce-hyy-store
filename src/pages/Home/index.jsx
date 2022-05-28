@@ -31,7 +31,7 @@ const Home = () =>{
     appendDots: dots => (
       <div
       >
-        <ul style={{ margin: "40px" }}> {dots} </ul>
+        <ul style={{ marginBottom: "40px" }}> {dots} </ul>
       </div>
     ),
   };

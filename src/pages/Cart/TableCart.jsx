@@ -6,15 +6,14 @@ import { selectTotalBill, selectNumberSale , selectAllCartItems, remove ,increas
 import './cart.css'
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
+import { formatter } from "../../../util";
 const TableCart = () => {
     const dispatch = useDispatch();
 
     const cart = useSelector(selectAllCartItems)
     const numberSale = useSelector(selectNumberSale)
     const totalBill = useSelector(selectTotalBill)
-    let formatter = new Intl.NumberFormat("en-US", {
-        currency: "VND",
-      });
+
 
     const handleIncrease = ({id:id,size:size}) => {
       dispatch(increase({id:id,size:size}));

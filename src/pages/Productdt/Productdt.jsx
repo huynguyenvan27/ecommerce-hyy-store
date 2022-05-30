@@ -93,9 +93,9 @@ const Productdt = () =>{
                     centerMode = {true}
                     centerPadding= {true}
                     >
-                {data.imgDetail.map(src=>{
+                {data.imgDetail?.map(src=>{
                   return(
-                    <div key={src}>
+                    <div key={src} >
                     <img src={src} alt="" />
                   </div>)
                 })}

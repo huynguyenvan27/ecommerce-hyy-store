@@ -1,5 +1,8 @@
-.slick-slider:nth-child(2) .slick-slide.slick-current >div >div{
+.slick-slider:nth-child(2) .slick-slide.slick-current >div >div img{
   border: 1px solid var(--black-color);
+}
+.slick-slider:nth-child(2) .slick-slide img {
+  max-width: 200px;
 }
 #product-details{
   margin-top: 60px;

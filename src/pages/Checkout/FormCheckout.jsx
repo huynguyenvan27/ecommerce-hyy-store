@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Formik, Field, Form } from 'formik';
+import { clear } from '../../store/slices/cart.slice';
 import * as Yup from 'yup';
 import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux';
 export default function FormCheckout() {
+  const dispatch = useDispatch()
   const [location,setLocation] = useState([])
   useEffect( ()=>{
     fetch('https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json')
@@ -29,6 +32,7 @@ export default function FormCheckout() {
     setCommune(e.target.value)
     setMeesage2(false)
   }
+  
   const result = location.find(item => item.Name == city)
 
   const result1 = result?.Districts.find(item => item.Name == district)
@@ -55,7 +59,8 @@ export default function FormCheckout() {
               <Formik
             initialValues={{ name: '', email: '', address: '', phone: '' }}
             onSubmit={(values, { setSubmitting }) => {
-             if(city&&district&&commune){
+              if(city&&district&&commune){
+                  dispatch(clear)
                   toast.success(`
                   Đặt hàng thành công`,{
                   position: "top-center",
